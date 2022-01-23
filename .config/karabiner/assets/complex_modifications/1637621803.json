@@ -1,0 +1,83 @@
+{
+  "title": "Disable Ctrl Click",
+  "rules": [
+    {
+      "description": "Ctrl + Left Click to Left Click",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button1",
+            "modifiers": {
+              "mandatory": [
+                  "left_control"
+              ],
+              "optional": [
+                  "caps_lock"
+              ]
+            }
+          },
+          "to": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ctrl shift f from command shift f",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "keycode": "F",
+            "modifiers": {
+              "mandatory": [
+                  "left_control",
+                  "shift"
+              ],
+              "optional": [
+                  "any"
+              ]
+            }
+          },
+          "to": [
+              {
+                 "key_code": "F",
+                 "modifiers": [
+                    "left_command",
+                    "shift"
+                 ]
+              }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ctrl f from command f",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "keycode": "f",
+            "modifiers": {
+              "mandatory": [
+                  "left_control"
+              ],
+              "optional": [
+                  "any"
+              ]
+            }
+          },
+          "to": [
+              {
+                 "key_code": "f",
+                 "modifiers": [
+                    "left_command"
+                 ]
+              }
+          ]
+        }
+      ]
+    }
+  ]
+}
