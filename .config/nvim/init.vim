@@ -61,6 +61,17 @@ Plug 'saadparwaiz1/cmp_luasnip' " Snippets source for nvim-cmp
 Plug 'L3MON4D3/LuaSnip' " Snippets plugin
 Plug 'onsails/lspkind-nvim'
 
+Plug 'jpalardy/vim-slime'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" Language server registry
+Plug 'lspcontainers/lspcontainers.nvim'
+
+" Rust Tools
+Plug 'simrat39/rust-tools.nvim'
+" Debugging
+Plug 'mfussenegger/nvim-dap'
+
 call plug#end()
 " let g:airline_powerline_fonts=1
 set background=dark
@@ -80,6 +91,7 @@ let g:ale_linters = {}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['black', 'isort'],
+\   'rust': ['rustfmt'],
 \   'json': ['jq'],
 \}
 
@@ -90,6 +102,9 @@ let g:ale_python_black_options= '--line-length 100'
 let g:ale_python_isort_options= '--line-length 100'
 
 let g:ale_fix_on_save = 1
+
+let g:slime_target = "tmux"
+let g:slime_python_ipython = 1
 
 " My leader
 let mapleader=" "
@@ -103,7 +118,7 @@ lua << EOF
 EOF
 
 " Telescope Using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({cwd = git_dir})<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep({cwd = git_dir})<cr>
 nnoremap <leader>gf <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
