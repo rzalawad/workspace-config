@@ -1,0 +1,198 @@
+
+# 2022-03-29 13:43:39.802063
++ls
+
+# 2022-03-29 13:43:40.551194
++\d
+
+# 2022-03-29 14:12:39.541394
++\
+
+# 2022-03-29 14:12:40.385419
++\d
+
+# 2022-03-29 14:12:50.462002
++select * from algor
+
+# 2022-03-29 14:12:53.688635
++select * from algorithm_catalog
+
+# 2022-03-29 17:44:01.065420
++\d
+
+# 2022-03-29 17:44:05.730374
++select * from superattribute_type
+
+# 2022-03-29 17:44:50.205207
++select * from project_catalog
+
+# 2022-03-30 15:05:38.010639
++clea
+
+# 2022-03-30 15:05:39.028339
++clear
+
+# 2022-03-30 16:05:52.985656
++select * from project_catalog
+
+# 2022-03-30 16:08:20.974153
++select * from data_catalog limit 10
+
+# 2022-03-30 16:11:55.041581
++\d
+
+# 2022-03-30 16:12:05.081530
++select * from data_catalog limit 10
+
+# 2022-03-30 16:13:57.024090
++\d
+
+# 2022-03-30 16:14:04.515771
++select * from data_catalog limit 10
+
+# 2022-03-30 16:14:10.340639
++select * from instance_data_catalog limit 10
+
+# 2022-03-30 16:14:17.664473
++select * from label_catalog limit 10
+
+# 2022-03-30 16:14:25.720270
++select * from data_catalog limit 11
+
+# 2022-03-30 16:14:29.351737
++select * from data_catalog limit 1
+
+# 2022-03-30 16:14:51.144791
++clear
+
+# 2022-03-30 16:14:52.093863
++exit
+
+# 2022-03-30 16:15:41.606849
++\pager less
+
+# 2022-03-30 16:15:44.216015
++select * from data_catalog limit 1
+
+# 2022-03-30 16:15:56.770617
++\pager
+
+# 2022-03-30 16:16:11.095375
++\pager \x
+
+# 2022-03-30 16:16:12.614999
++\pager \X
+
+# 2022-03-30 16:16:15.766843
++select * from data_catalog limit 1
+
+# 2022-03-30 16:16:25.515270
++\pager less
+
+# 2022-03-30 16:16:26.441877
++select * from data_catalog limit 1
+
+# 2022-03-30 16:17:50.888666
++select * from data_catalog limit 100
+
+# 2022-03-30 16:17:56.450076
++select count(*) from data_catalog
+
+# 2022-03-30 16:41:00.946828
++select * from data_catalog limit 10
+
+# 2022-03-30 16:41:20.589348
++\d data_catalog
+
+# 2022-03-30 19:59:30.758065
++\d
+
+# 2022-03-30 19:59:40.603792
++select * from project_catalog
+
+# 2022-03-30 20:02:11.803014
++\d
+
+# 2022-03-30 20:23:37.952154
++select * from superattribute_type
+
+# 2022-03-30 20:45:53.387643
++select COUNT(*) from data_catalog
+
+# 2022-03-30 21:49:28.972206
++p
+
+# 2022-03-30 22:21:57.085240
++select COUNT(*) from instance_data_catalog
+
+# 2022-03-31 06:25:02.850899
++select * from instance_data_catalog limit 10
+
+# 2022-03-31 08:33:33.235084
++select * from label_catalog limit 10
+
+# 2022-03-31 08:33:39.418768
++select count(*) from label_catalog
+
+# 2022-03-31 16:02:57.456788
++\d
+
+# 2022-03-31 16:02:58.666906
++clear
+
+# 2022-03-31 16:21:08.948670
++select count(*) from instance_data_catalog
+
+# 2022-04-01 11:18:13.158691
++\d
+
+# 2022-04-01 11:44:16.623999
++select * from project_catalog
+
+# 2022-04-01 11:49:15.744246
++\d
+
+# 2022-04-01 11:49:20.322732
++select * from project_catalog
+
+# 2022-04-01 14:53:01.917548
++\d
+
+# 2022-04-01 14:53:06.427298
++select * from label_catalog 
+
+# 2022-04-01 14:53:10.008504
++select * from attribute_catalog
+
+# 2022-04-01 14:53:20.869620
++select * from attribute_type
+
+# 2022-04-01 14:53:28.641606
++select * from supercategory_type
+
+# 2022-04-01 14:53:34.563247
++select * from category_type
+
+# 2022-04-01 14:53:39.727933
++clear
+
+# 2022-04-04 12:25:59.116211
++select * from data_catalog
+
+# 2022-04-04 12:26:05.732171
++select count(*) from data_catalog
+
+# 2022-04-04 12:26:11.367734
++clear
+
+# 2022-04-04 12:26:13.147525
++exit9)
+
+# 2022-04-04 12:26:14.018224
++eix
+
+# 2022-04-04 12:26:16.338524
++exit()
+
+# 2022-04-04 12:26:17.847364
++exit
