@@ -33,10 +33,16 @@ Plug 'chriskempson/base16-vim'
 Plug 'jacoborus/tender.vim'
 Plug 'lervag/vimtex'
 Plug 'tomasiser/vim-code-dark'
+Plug 'Mofiqul/vscode.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'mhartington/oceanic-next'
 Plug 'sainnhe/edge'
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/sonokai'
+Plug 'tjdevries/colorbuddy.vim'
+Plug 'sainnhe/edge'
+Plug 'vigoux/oak'
+
 Plug 'dhruvasagar/vim-table-mode'
 
 Plug 'chrisbra/csv.vim'
@@ -62,7 +68,8 @@ Plug 'L3MON4D3/LuaSnip' " Snippets plugin
 Plug 'onsails/lspkind-nvim'
 
 Plug 'jpalardy/vim-slime'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 
 " Language server registry
 Plug 'lspcontainers/lspcontainers.nvim'
@@ -72,16 +79,76 @@ Plug 'simrat39/rust-tools.nvim'
 " Debugging
 Plug 'mfussenegger/nvim-dap'
 
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+Plug 'tweekmonster/startuptime.vim'
+
 call plug#end()
+
+" options for markdown render
+" mkit: markdown-it options for render
+" katex: katex options for math
+" uml: markdown-it-plantuml options
+" maid: mermaid options
+" disable_sync_scroll: if disable sync scroll, default 0
+" sync_scroll_type: 'middle', 'top' or 'relative', default value is 'middle'
+"   middle: mean the cursor position alway show at the middle of the preview page
+"   top: mean the vim top viewport alway show at the top of the preview page
+"   relative: mean the cursor position alway show at the relative positon of the preview page
+" hide_yaml_meta: if hide yaml metadata, default is 1
+" sequence_diagrams: js-sequence-diagrams options
+" content_editable: if enable content editable for preview page, default: v:false
+" disable_filename: if disable filename header for preview page, default: 0
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
+
+" use a custom markdown style must be absolute path
+" like '/Users/username/markdown.css' or expand('~/markdown.css')
+let g:mkdp_markdown_css = ''
+
+" use a custom highlight style must absolute path
+" like '/Users/username/highlight.css' or expand('~/highlight.css')
+let g:mkdp_highlight_css = ''
+
+" use a custom port to start server or random for empty
+let g:mkdp_port = ''
+
+" preview page title
+" ${name} will be replace with the file name
+let g:mkdp_page_title = '「${name}」'
+
+" recognized filetypes
+" these filetypes will have MarkdownPreview... commands
+let g:mkdp_filetypes = ['markdown']
+" let vim_markdown_preview_github=1
+" let vim_markdown_preview_browser='Brave Browser'
+
+
 " let g:airline_powerline_fonts=1
 set background=dark
 syntax on
 " colorscheme codedark
 let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+" colorscheme gruvbox
 " colorscheme OceanicNext
 " colorscheme zephyr
 " colorscheme edge
+" let g:sonokai_style = 'maia'
+let g:sonokai_better_performance = 1
+colorscheme sonokai
+" And then somewhere in your init.vim, to set the colorscheme
+" lua require('colorbuddy').colorscheme('nvim-rdark')
 " let g:gruvbox_material_background = 'hard'
 " colorscheme gruvbox-material
 
@@ -115,16 +182,31 @@ lua << EOF
     if git_dir == nil then
         git_dir = vim.fn.getcwd()
     end
+    dotfiles_dir = "~/.config/nvim/"
 EOF
 
 " Telescope Using Lua functions
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({cwd = git_dir})<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep({cwd = git_dir})<cr>
+nnoremap <leader>fd <cmd>lua require('telescope.builtin').find_files({cwd = dotfiles_dir})<cr>
 nnoremap <leader>gf <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>s :w<cr>
-nnoremap <leader>h :noh<cr>
+nnoremap <leader>d :noh<cr>
+
+" Move to the next buffer
+nnoremap <leader>l :tabnext<CR>
+
+" Move to the previous buffer
+nnoremap <leader>h :tabprev<CR>
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nnoremap <leader>q :bp <BAR> bd #<CR>
+
+" Show all open buffers and their status
+nnoremap <leader>bl :ls<CR>
 
 inoremap jj <Esc>
 
@@ -136,6 +218,9 @@ augroup END
 
 
 set completeopt=menu,menuone
+set ignorecase
+set smartcase
+
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 lua << EOF
