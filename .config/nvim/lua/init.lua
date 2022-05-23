@@ -1,4 +1,2 @@
-
-
-require'lua-ls'
 require'lsp'
+require'snips'
