@@ -42,5 +42,17 @@ mkdir -p mydir
 tar xvf $OPT_HOME/neovim.tar.gz -C $OPT_HOME
 mv $OPT_HOME/nvim-$NEOVIM_ARCH $OPT_HOME/nvim
 
+
+# install FZF
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+
+# install rust (why not lol)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rust-init.sh \
+    && chmod +x rust-init.sh \
+    && ./rust-init.sh -y --profile default
+
+if [[ $(uname -s) == "Darwin" ]];
+then
+    brew install gcc
+fi

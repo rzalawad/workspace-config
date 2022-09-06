@@ -109,6 +109,11 @@ then
     alias resnet='echo sudo systemctl restart networking'
 fi
 
+if [[ $(uname -s) == "Darwin"]]
+then
+    export CC=/opt/homebrew/bin/gcc-12
+fi
+
 alias nvim="~/opt/nvim/bin/nvim"
 alias vim="~/opt/nvim/bin/nvim"
 
