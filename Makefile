@@ -45,6 +45,15 @@ ifeq ($(OS), Darwin)
 	brew install gcc
 endif
 
+build_system: setup
+ifeq ($(OS), Darwin)
+	brew install meson ninja
+else
+	sudo apt install build-essential
+	sudo apt install meson ninja-build
+endif
+
+
 nodejs: setup
 	$(eval NODE_JS_VERSION := $(shell curl -s https://nodejs.org/dist/latest/ | grep -o 'href=".*">' \
 		| sed 's/href="//;s/\/">//' \
@@ -64,5 +73,5 @@ nodejs: setup
 
 all: setup fzf neovim rust brew compiler nodejs
 
-.PHONY: setup fzf neovim rust brew compiler nodejs all
+.PHONY: setup fzf neovim rust brew compiler nodejs build_system all
 .DEFAULT_GOAL := setup
