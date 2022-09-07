@@ -151,3 +151,5 @@ alias tn='t new-session -s'
 # source /opt/ros/humble/setup.zsh
 # export ROS_DOMAIN_ID=1
 # source ~/workspace/install/setup.zsh
+
+git config --add oh-my-zsh.hide-dirty 1
