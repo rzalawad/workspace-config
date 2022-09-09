@@ -2,7 +2,7 @@
   "title": "Caps Lock (option) + HJKL",
   "rules": [
     {
-      "description": "Caps Lock to escape",
+      "description": "Caps Lock to control",
       "manipulators": [
         {
           "type": "basic",

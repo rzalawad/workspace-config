@@ -47,11 +47,12 @@ endif
 
 build_system: setup
 ifeq ($(OS), Darwin)
-	brew install meson ninja
+	brew install meson ninja bison cmake
 else
 	sudo apt install build-essential
-	sudo apt install meson ninja-build
+	sudo apt install meson ninja-build bison cmake
 endif
+	python3 -m pip install Mako
 
 
 nodejs: setup
