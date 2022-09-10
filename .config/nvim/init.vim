@@ -6,7 +6,7 @@ set smartindent
 set autoindent
 set exrc " local vimrc in local directory where vim was initialized
 set guicursor= " keep cursor as block
-set relativenumber number
+set number
 set hidden
 set noerrorbells
 set undodir=~/.vim/undodir
