@@ -137,7 +137,6 @@ let g:mkdp_filetypes = ['markdown']
 
 " let g:airline_powerline_fonts=1
 set background=dark
-syntax on
 " colorscheme codedark
 let g:gruvbox_contrast_dark = 'hard'
 " colorscheme gruvbox
