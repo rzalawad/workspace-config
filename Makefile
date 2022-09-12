@@ -22,9 +22,9 @@ fzf: setup
 	~/.fzf/install
 
 neovim: setup
-	curl -sSL https://github.com/neovim/neovim/releases/download/nightly/nvim-$(NEOVIM_ARCH).tar.gz -o $(OPT_HOME)/neovim.tar.gz
-	mkdir -p mydir
+	curl -sSL https://github.com/neovim/neovim/releases/download/stable/nvim-$(NEOVIM_ARCH).tar.gz -o $(OPT_HOME)/neovim.tar.gz
 	tar xvf $(OPT_HOME)/neovim.tar.gz -C $(OPT_HOME)
+	rm -rf $(OPT_HOME)/nvim
 	mv $(OPT_HOME)/nvim-$(NEOVIM_ARCH) $(OPT_HOME)/nvim
 
 rust: setup
