@@ -26,6 +26,7 @@ endif
 let g:python3_host_prog="/opt/homebrew/bin/python3"
 
 call plug#begin('~/.vim/plugged')
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'jaredgorski/spacecamp'
 Plug 'vim-airline/vim-airline-themes'
@@ -66,6 +67,7 @@ Plug 'hrsh7th/cmp-path'
 Plug 'saadparwaiz1/cmp_luasnip' " Snippets source for nvim-cmp
 Plug 'L3MON4D3/LuaSnip' " Snippets plugin
 Plug 'onsails/lspkind-nvim'
+Plug 'p00f/clangd_extensions.nvim'
 
 Plug 'jpalardy/vim-slime'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -82,6 +84,11 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 Plug 'tweekmonster/startuptime.vim'
+
+Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
+
+Plug 'TimUntersberger/neogit'
+Plug 'sindrets/diffview.nvim'
 
 call plug#end()
 
@@ -184,6 +191,17 @@ lua << EOF
     dotfiles_dir = "~/.config/nvim/"
 EOF
 
+lua << EOF
+    function custom_live_grep()
+        local dir = vim.fn.input("Enter directory to grep: ", "", "file")
+        require('telescope.builtin').live_grep({cwd = dir})
+    end
+    function custom_find_file()
+        local dir = vim.fn.input("Enter directory to search: ", "", "file")
+        require('telescope.builtin').find_files({cwd = dir})
+    end
+EOF
+
 " Telescope Using Lua functions
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({cwd = git_dir})<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep({cwd = git_dir})<cr>
@@ -191,6 +209,8 @@ nnoremap <leader>fd <cmd>lua require('telescope.builtin').find_files({cwd = dotf
 nnoremap <leader>gf <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>gc <cmd>lua custom_live_grep()<cr>
+nnoremap <leader>fc <cmd>lua custom_find_file()<cr>
 nnoremap <leader>s :w<cr>
 nnoremap <leader>d :noh<cr>
 
