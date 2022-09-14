@@ -32,6 +32,9 @@ rust: setup
 		&& chmod +x $(OPT_HOME)/rust-init.sh \
 		&& $(OPT_HOME)/rust-init.sh -y --profile default
 	rm $(OPT_HOME)/rust-init.sh
+ifeq ($(OS), Darwin)
+	brew install rust-analyzer
+endif
 
 brew: setup
 ifeq ($(OS), Darwin)
