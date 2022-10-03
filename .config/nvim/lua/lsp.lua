@@ -8,7 +8,7 @@ require'nvim-treesitter.configs'.setup {
       "c", "lua", "rust", "python", "cmake", "cpp", "cuda", "dockerfile", "glsl", "go",
       "graphql", "html", "http", "java", "javascript", "json", "json5", "julia", "kotlin",
       "latex", "llvm", "make", "ninja", "regex", "solidity", "typescript", "wgsl", "vim", "yaml",
-      "vue", "todotxt"
+      "vue", "todotxt", "norg"
   },
 
   ignore_install = {"phpdoc"},
@@ -128,6 +128,7 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, -- For luasnip users.
     { name = 'path' },
+    { name = 'neorg' },
     { name = 'buffer' },
   }),
 
@@ -179,54 +180,46 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 end
 
--- Rust setup through rust-tools
-local rust_opts = {
-    tools = { -- rust-tools options
-        autoSetHints = true,
-        hover_with_actions = true,
-        inlay_hints = {
-            show_parameter_hints = false,
-            parameter_hints_prefix = "",
-            other_hints_prefix = "",
-        },
-    },
 
-    -- all the opts to send to nvim-lspconfig
-    -- these override the defaults set by rust-tools.nvim
-    -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
-    server = {
-        -- on_attach is a callback called when the language server attachs to the buffer
-        on_attach = on_attach,
-        capabilities=capabilities,
-        settings = {
-            -- to enable rust-analyzer settings visit:
-            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-            ["rust-analyzer"] = {
-                -- enable clippy on save
-                checkOnSave = {
-                    command = "clippy"
-                },
-            }
+-- RUST TOOLS setup
+local rt = require('rust-tools')
+rt.setup({
+  server = {
+    on_attach = on_attach,
+    capabilities=capabilities,
+    settings = {
+        -- to enable rust-analyzer settings visit:
+        -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+        ["rust-analyzer"] = {
+            -- enable clippy on save
+            checkOnSave = {
+                command = "clippy"
+            },
         }
-    },
-}
-
-require('rust-tools').setup(rust_opts)
+    }
+    -- function(_, bufnr)
+    --   -- Hover actions
+    --   vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+    --   -- Code action groups
+    --   vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    -- end,
+  },
+})
 
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'pyright', 'tsserver' }
+local servers = { 'pyright', 'tsserver' }
 for _, lsp in ipairs(servers) do
 
   local root_dir = nil
@@ -270,25 +263,53 @@ for _, lsp in ipairs(servers) do
 end
 
 
+-- clangd setup
 
+local function switch_source_header_splitcmd(bufnr, splitcmd)
+   bufnr = require'lspconfig'.util.validate_bufnr(bufnr)
+   local clangd_client = require'lspconfig'.util.get_active_client_by_name(bufnr, 'clangd')
+   local params = {uri = vim.uri_from_bufnr(bufnr)}
+   if clangd_client then
+    clangd_client.request("textDocument/switchSourceHeader", params, function(err, result)
+      if err then
+        error(tostring(err))
+      end
+      if not result then
+        print("Corresponding file can’t be determined")
+        return
+      end
+      vim.api.nvim_command(splitcmd .. " " .. vim.uri_to_fname(result))
+     end, bufnr)
+   else
+     print 'textDocument/switchSourceHeader is not supported by the clangd server active on the current buffer'
+   end
+end
 
--- nvim_lsp.rust_analyzer.setup({
---     on_attach=on_attach,
---     settings = {
---         ["rust-analyzer"] = {
---             assist = {
---                 importGranularity = "module",
---                 importPrefix = "by_self",
---             },
---             cargo = {
---                 loadOutDirsFromCheck = true
---             },
---             procMacro = {
---                 enable = true
---             },
---         }
---     }
--- })
+require("clangd_extensions").setup {
+    server = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        root_dir = root_dir,
+        filetypes = { 'c', 'cpp', 'objc', 'objcpp' , 'cuda'},
+        -- cmd = {
+        --     "clangd", "-std=c++17"
+        -- },
+        commands = {
+            ClangdSwitchSourceHeader = {
+               function() switch_source_header_splitcmd(0, "tabedit") end;
+               description = "Open source/header in current buffer";
+            },
+            ClangdSwitchSourceHeaderVSplit = {
+               function() switch_source_header_splitcmd(1, "vsplit") end;
+               description = "Open source/header in a new vsplit";
+            },
+            ClangdSwitchSourceHeaderSplit = {
+               function() switch_source_header_splitcmd(0, "split") end;
+               description = "Open source/header in a new split";
+            }
+        }
+    }
+}
 
 
 nvim_lsp.dockerls.setup {
