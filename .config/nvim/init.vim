@@ -246,6 +246,8 @@ lua << EOF
     require('init')
 EOF
 
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
 " gray
 highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
 " blue
