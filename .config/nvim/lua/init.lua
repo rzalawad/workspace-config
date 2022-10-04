@@ -14,7 +14,9 @@ require('neorg').setup {
                 engine="nvim-cmp"
             }
         },
-        ["core.integrations.nvim-cmp"] = {}
+        ["core.integrations.nvim-cmp"] = {},
+        ["core.export.markdown"] = {},
+        ["core.export"] = {},
     }
 }
 
