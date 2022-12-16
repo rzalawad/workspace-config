@@ -175,6 +175,7 @@ let g:ale_python_black_options= '--line-length 100'
 let g:ale_python_isort_options= '--line-length 100'
 
 let g:ale_fix_on_save = 1
+let g:ale_disable_lsp = 1
 
 let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
