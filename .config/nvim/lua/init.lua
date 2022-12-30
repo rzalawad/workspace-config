@@ -23,7 +23,7 @@ require('neorg').setup {
 require("diffview").setup({
   view = {
     -- Configure the layout and behavior of different types of views.
-    -- Available layouts: 
+    -- Available layouts:
     --  'diff1_plain'
     --    |'diff2_horizontal'
     --    |'diff2_vertical'
@@ -33,8 +33,8 @@ require("diffview").setup({
     --    |'diff4_mixed'
     -- For more info, see ':h diffview-config-view.x.layout'.
     default = {
-      -- Config for changed files, and staged files in diff views.
-      layout = "diff3_mixed",
+    --   -- Config for changed files, and staged files in diff views.
+      layout = "diff2_horizontal",
     },
     merge_tool = {
       -- Config for conflicted files in diff views during a merge or rebase.
@@ -54,7 +54,7 @@ neogit.setup {
   disable_hint = false,
   disable_context_highlighting = false,
   disable_commit_confirmation = false,
-  -- Neogit refreshes its internal state after specific events, which can be expensive depending on the repository size. 
+  -- Neogit refreshes its internal state after specific events, which can be expensive depending on the repository size.
   -- Disabling `auto_refresh` will make it so you have to manually refresh the status after you open it.
   auto_refresh = true,
   disable_builtin_notifications = false,
