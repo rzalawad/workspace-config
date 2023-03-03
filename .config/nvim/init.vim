@@ -193,6 +193,19 @@ lua << EOF
 EOF
 
 lua << EOF
+    local actions = require('telescope.actions')
+    require('telescope').setup {
+        defaults = {
+            mappings = {
+                i = {
+                    ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
+                }
+            }
+        }
+    }
+EOF
+
+lua << EOF
     function custom_live_grep()
         local dir = vim.fn.input("Enter directory to grep: ", "", "file")
         require('telescope.builtin').live_grep({cwd = dir})
