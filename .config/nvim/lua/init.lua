@@ -8,8 +8,8 @@ require'general'
 require('neorg').setup {
     load = {
         ["core.defaults"] = {},
-        ["core.norg.concealer"] = {},
-        ["core.norg.completion"] = {
+        ["core.concealer"] = {},
+        ["core.completion"] = {
             config = {
                 engine="nvim-cmp"
             }
