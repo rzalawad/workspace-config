@@ -323,8 +323,8 @@ nvim_lsp.dockerls.setup {
     root_dir = nvim_lsp.util.root_pattern(".git", vim.fn.getcwd()),
 }
 
-nvim_lsp.sumneko_lua.setup {
-    cmd = require 'lspcontainers'.command('sumneko_lua'),
+nvim_lsp.lua_ls.setup {
+    cmd = require 'lspcontainers'.command('lua_ls'),
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
