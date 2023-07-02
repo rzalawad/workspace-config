@@ -879,6 +879,57 @@
                         ]
                     },
                     {
+                        "description": "N (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^com\\.jetbrains\\.intellij\\.ce$",
+                                            "^com\\.jetbrains\\.PhpStorm$",
+                                            "^com\\.jetbrains\\.pycharm$",
+                                            "^com\\.jetbrains\\.rider$",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "n",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "S (Ctrl)",
                         "manipulators": [
                             {
@@ -1187,6 +1238,58 @@
                         ]
                     },
                     {
+                        "description": "C (Ctrl)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^com\\.jetbrains\\.intellij\\.ce$",
+                                            "^com\\.jetbrains\\.PhpStorm$",
+                                            "^com\\.jetbrains\\.pycharm$",
+                                            "^com\\.jetbrains\\.rider$",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^io\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "A (Ctrl)",
                         "manipulators": [
                             {
@@ -1371,111 +1474,6 @@
                         ]
                     },
                     {
-                        "description": "C (Ctrl)",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.gnu\\.Emacs$",
-                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.parallels\\.desktop\\.console$",
-                                            "^org\\.vmware\\.fusion$",
-                                            "^org\\.gnu\\.emacs$",
-                                            "^com\\.jetbrains\\.intellij\\.ce$",
-                                            "^com\\.jetbrains\\.PhpStorm$",
-                                            "^com\\.jetbrains\\.pycharm$",
-                                            "^com\\.jetbrains\\.rider$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.sublimetext\\.3$",
-                                            "^com\\.citrix\\.XenAppViewer$",
-                                            "^com\\.microsoft\\.rdc\\.macos$",
-                                            "^net\\.kovidgoyal\\.kitty$",
-                                            "^io\\.alacritty$",
-                                            "^co\\.zeit\\.hyper$",
-                                            "^com\\.googlecode\\.iterm2$",
-                                            "^com\\.apple\\.Terminal$",
-                                            "^com\\.brave\\.Browser$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "c",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "c",
-                                        "modifiers": [
-                                            "command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Enter (Ctrl)",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.parallels\\.desktop\\.console$",
-                                            "^org\\.vmware\\.fusion$",
-                                            "^org\\.gnu\\.emacs$",
-                                            "^com\\.jetbrains\\.intellij\\.ce$",
-                                            "^com\\.jetbrains\\.PhpStorm$",
-                                            "^com\\.jetbrains\\.pycharm$",
-                                            "^com\\.jetbrains\\.rider$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.sublimetext\\.3$",
-                                            "^com\\.citrix\\.XenAppViewer$",
-                                            "^com\\.microsoft\\.rdc\\.macos$",
-                                            "^net\\.kovidgoyal\\.kitty$",
-                                            "^io\\.alacritty$",
-                                            "^co\\.zeit\\.hyper$",
-                                            "^com\\.googlecode\\.iterm2$",
-                                            "^com\\.apple\\.Terminal$",
-                                            "^com\\.brave\\.Browser$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "return_or_enter",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "return_or_enter",
-                                        "modifiers": [
-                                            "command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "F (Ctrl)",
                         "manipulators": [
                             {
@@ -1518,58 +1516,6 @@
                                 "to": [
                                     {
                                         "key_code": "f",
-                                        "modifiers": [
-                                            "command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "N (Ctrl)",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.gnu\\.Emacs$",
-                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.parallels\\.desktop\\.console$",
-                                            "^org\\.vmware\\.fusion$",
-                                            "^org\\.gnu\\.emacs$",
-                                            "^com\\.jetbrains\\.intellij\\.ce$",
-                                            "^com\\.jetbrains\\.PhpStorm$",
-                                            "^com\\.jetbrains\\.pycharm$",
-                                            "^com\\.jetbrains\\.rider$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.sublimetext\\.3$",
-                                            "^com\\.citrix\\.XenAppViewer$",
-                                            "^com\\.microsoft\\.rdc\\.macos$",
-                                            "^net\\.kovidgoyal\\.kitty$",
-                                            "^io\\.alacritty$",
-                                            "^co\\.zeit\\.hyper$",
-                                            "^com\\.googlecode\\.iterm2$",
-                                            "^com\\.apple\\.Terminal$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "n",
                                         "modifiers": [
                                             "command"
                                         ]

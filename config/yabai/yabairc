@@ -28,8 +28,8 @@ color["preselect"]="0xE02d74da"
 
 # ===== Loading Scripting Additions ============
 
-sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
 
 # ===== Tiling setting =========================
 
