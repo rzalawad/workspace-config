@@ -115,4 +115,4 @@ neogit.setup {
   }
 }
 
-require("vimopts)
+require("vimopts")
