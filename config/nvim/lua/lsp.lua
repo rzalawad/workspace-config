@@ -294,9 +294,10 @@ require("clangd_extensions").setup {
         capabilities = capabilities,
         root_dir = nvim_lsp.util.root_pattern(".git", vim.fn.getcwd()),
         filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
-        -- cmd = {
-        --     "clangd", "-std=c++17"
-        -- },
+        cmd = {
+            "clangd",
+            "--clang-tidy"
+        },
         commands = {
             ClangdSwitchSourceHeader = {
                 function() switch_source_header_splitcmd(0, "tabedit") end;
