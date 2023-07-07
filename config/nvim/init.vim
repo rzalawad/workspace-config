@@ -160,10 +160,17 @@ colorscheme sonokai
 
 " let g:airline_theme = 'codedark'
 
-let g:ale_linters = {}
+
+" explicitly disable linters
+let g:ale_linters = {
+\   'python': [],
+\   'cpp': [],
+\}
+
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['black', 'isort'],
+\   'cpp': ['clang-format'],
 \   'rust': ['rustfmt'],
 \   'json': ['jq'],
 \}
