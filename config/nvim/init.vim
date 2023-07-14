@@ -165,6 +165,7 @@ colorscheme sonokai
 let g:ale_linters = {
 \   'python': [],
 \   'cpp': [],
+\   'c': [],
 \}
 
 let g:ale_fixers = {
