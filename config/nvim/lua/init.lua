@@ -52,3 +52,22 @@ local neogit = require('neogit')
 neogit.setup { }
 
 require("vimopts")
+
+local iron = require "iron.core"
+iron.setup({
+  config = {
+    should_map_plug = false,
+    scratch_repl = true,
+    repl_definition = {
+      python = {
+        command = { "ipython" },
+        format = require("iron.fts.common").bracketed_paste,
+      },
+    },
+    repl_open_cmd = require('iron.view').split.vertical.botright('50%'),
+  },
+  keymaps = {
+    send_motion = "<Leader>s",
+    visual_send = "<Leader>s",
+  },
+})

@@ -90,7 +90,23 @@ Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 Plug 'TimUntersberger/neogit'
 Plug 'sindrets/diffview.nvim'
 
+Plug 'hkupty/iron.nvim'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'GCBallesteros/vim-textobj-hydrogen'
+Plug 'GCBallesteros/jupytext.vim'
+
+
 call plug#end()
+
+" Jupytext
+let g:jupytext_fmt = 'py'
+let g:jupytext_style = 'hydrogen'
+
+" Send cell to IronRepl and move to next cell.
+" Depends on the text object defined in vim-textobj-hydrogen
+" You first need to be connected to IronRepl
+nmap <Leader>x <Leader>sih/^# %%<CR><CR>
 
 " options for markdown render
 " mkit: markdown-it options for render
@@ -235,7 +251,6 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>gc <cmd>lua custom_live_grep()<cr>
 nnoremap <leader>fc <cmd>lua custom_find_file()<cr>
-nnoremap <leader>s :w<cr>
 nnoremap <leader>d :noh<cr>
 
 " Move to the next buffer
