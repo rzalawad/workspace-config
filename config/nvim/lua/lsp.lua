@@ -49,6 +49,38 @@ local luasnip = require 'luasnip'
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
 local lspkind = require 'lspkind'
+require('lspkind').init({
+    mode = 'symbol_text',
+    preset = 'codicons',
+    symbol_map = {
+        Text = "",
+        Method = "m",
+        Function = "",
+        Constructor = "",
+        Field = "",
+        Variable = "",
+        Class = "",
+        Interface = "",
+        Module = "",
+        Property = "",
+        Unit = "",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "",
+        Event = "",
+        Operator = "",
+        TypeParameter = "",
+    },
+})
+
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
