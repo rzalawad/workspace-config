@@ -176,6 +176,8 @@ colorscheme sonokai
 
 " let g:airline_theme = 'codedark'
 
+let g:airline#extensions#searchcount#enabled = 0
+let g:airline#extensions#searchcount#show_search_term = 0
 
 " explicitly disable linters
 let g:ale_linters = {
