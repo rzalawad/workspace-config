@@ -9,7 +9,7 @@ cmd + lctrl - 2 : yabai -m window --space 2
 cmd + lctrl - 3 : yabai -m window --space 3
 cmd + lctrl - 4 : yabai -m window --space 4
 cmd + lctrl - 5 : yabai -m window --space 5
-lctrl - return : yabai -m window --toggle zoom-fullscreen
+lctrl + alt - f : yabai -m window --toggle zoom-fullscreen
 cmd - b : open -a "Brave Browser" -n
 cmd + alt - t : open -a "kitty" -n --args --single-instance
 
@@ -21,4 +21,4 @@ alt - 5 : yabai -m space --destroy 5
 
 lctrl + alt - c : /Users/ridham.zalawadia/.config/yabai/cycle_clockwise.sh
 
-lctrl + alt - i : yabai -m window --focus next || yabai -m window --focus first
+lctrl + alt - e : yabai -m window --focus next || yabai -m window --focus first
