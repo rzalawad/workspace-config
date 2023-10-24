@@ -27,6 +27,8 @@ neovim: setup
 	rm -rf $(OPT_HOME)/nvim
 	mv $(OPT_HOME)/nvim-$(NEOVIM_ARCH) $(OPT_HOME)/nvim
 	$(MAKE) vimplug
+	echo "alias nvim=~/opt/nvim/bin/nvim" >> ~/.zshrc
+	echo "alias nvim=~/opt/nvim/bin/nvim" >> ~/.bashrc
 
 rust: setup
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o $(OPT_HOME)/rust-init.sh \
