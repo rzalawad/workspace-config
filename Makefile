@@ -77,10 +77,10 @@ nodejs: setup
 	rm $(OPT_HOME)/nodejs.tar.gz
 
 vimplug:
-	sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	@bash -c 'curl -fLo "$${XDG_DATA_HOME:-$$(eval echo ~$${USER})/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-all: setup fzf neovim rust brew compiler nodejs
+all: setup fzf neovim rust brew compiler vimplug nodejs
 
 .PHONY: setup fzf neovim rust brew compiler nodejs build_system all
 .DEFAULT_GOAL := setup
