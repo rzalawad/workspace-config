@@ -26,6 +26,7 @@ neovim: setup
 	tar xvf $(OPT_HOME)/neovim.tar.gz -C $(OPT_HOME)
 	rm -rf $(OPT_HOME)/nvim
 	mv $(OPT_HOME)/nvim-$(NEOVIM_ARCH) $(OPT_HOME)/nvim
+	$(MAKE) vimplug
 
 rust: setup
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o $(OPT_HOME)/rust-init.sh \
@@ -74,6 +75,10 @@ nodejs: setup
 	rm -rf $(OPT_HOME)/nodejs
 	mv $(OPT_HOME)/$(NODE_JS_DIRNAME) $(OPT_HOME)/nodejs
 	rm $(OPT_HOME)/nodejs.tar.gz
+
+vimplug:
+	sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 all: setup fzf neovim rust brew compiler nodejs
 
