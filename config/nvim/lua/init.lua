@@ -2,6 +2,7 @@
 require'lsp'
 require'snips'
 require'general'
+require'debugging'
 
 
 -- neorg setup must be called after treesitter config
@@ -71,3 +72,11 @@ iron.setup({
     visual_send = "<Leader>s",
   },
 })
+
+require('chatgpt').setup( {
+    openai_params = {
+        max_tokens = 800,
+        temperature = 0.7,
+        top_p = 0.95,
+    }
+} )
