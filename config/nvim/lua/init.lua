@@ -1,9 +1,14 @@
 
-require'lsp'
-require'snips'
-require'general'
-require'debugging'
+require('plugins')
+require('vimopts')
+require('keymaps')
 
+require('lsp')
+require('snips')
+require('general')
+require('debugging')
+
+require('linting')
 
 -- neorg setup must be called after treesitter config
 require('neorg').setup {
@@ -52,8 +57,6 @@ require("diffview").setup({
 local neogit = require('neogit')
 neogit.setup { }
 
-require("vimopts")
-
 local iron = require "iron.core"
 iron.setup({
   config = {
@@ -80,3 +83,31 @@ require('chatgpt').setup( {
         top_p = 0.95,
     }
 } )
+
+
+
+git_dir = require('lspconfig').util.find_git_ancestor(vim.fn.getcwd())
+if git_dir == nil then
+    git_dir = vim.fn.getcwd()
+end
+dotfiles_dir = "~/.config/nvim/"
+
+local actions = require('telescope.actions')
+require('telescope').setup {
+    defaults = {
+        mappings = {
+            i = {
+                ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            }
+        }
+    }
+}
+
+function custom_live_grep()
+    local dir = vim.fn.input("Enter directory to grep: ", "", "file")
+    require('telescope.builtin').live_grep({cwd = dir})
+end
+function custom_find_file()
+    local dir = vim.fn.input("Enter directory to search: ", "", "file")
+    require('telescope.builtin').find_files({cwd = dir})
+end
