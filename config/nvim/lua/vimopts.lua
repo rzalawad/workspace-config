@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 local vcentercursor_group = vim.api.nvim_create_augroup("VCenterCursor", {})
-vim.api.nvim_create_autocmd("BufEnter,WinEnter,WinNew,VimResized", {
+vim.api.nvim_create_autocmd({"BufEnter", "WinEnter", "WinNew", "VimResized"}, {
   group = vcentercursor_group,
   pattern = {"*", "*.*"},
   callback = function()
