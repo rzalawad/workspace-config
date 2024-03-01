@@ -26,6 +26,7 @@ require 'nvim-treesitter.configs'.setup {
     },
 }
 
+
 require('refactoring').setup({})
 -- Remaps for each of the four refactoring operations currently offered by the plugin
 vim.api.nvim_set_keymap("v", "<Leader>ef", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],

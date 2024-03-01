@@ -89,6 +89,7 @@ plugins = {
     'rcarriga/nvim-dap-ui',
     'theHamsta/nvim-dap-virtual-text',
     'mfussenegger/nvim-dap-python',
+    "nyoom-engineering/oxocarbon.nvim",
 }
 
 require("lazy").setup(plugins)

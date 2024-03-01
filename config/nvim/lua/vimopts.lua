@@ -34,7 +34,7 @@ vim.g.mapleader = " "
 -- colorscheme
 opt.background="dark"
 vim.g.sonokai_better_performance = 1
-vim.cmd("colorscheme sonokai")
+vim.cmd("colorscheme oxocarbon")
 vim.g["airline#extensions#searchcount#enabled"] = 0
 vim.g["airline#extensions#searchcount#show_search_term"] = 0
 
