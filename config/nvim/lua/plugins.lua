@@ -85,6 +85,7 @@ plugins = {
     'GCBallesteros/jupytext.vim',
     'MunifTanjim/nui.nvim',
     'jackMort/ChatGPT.nvim',
+    "nvim-neotest/nvim-nio",
     'mfussenegger/nvim-dap',
     'rcarriga/nvim-dap-ui',
     'theHamsta/nvim-dap-virtual-text',
