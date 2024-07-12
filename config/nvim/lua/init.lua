@@ -10,22 +10,6 @@ require('debugging')
 
 require('linting')
 
--- neorg setup must be called after treesitter config
-require('neorg').setup {
-    load = {
-        ["core.defaults"] = {},
-        ["core.concealer"] = {},
-        ["core.completion"] = {
-            config = {
-                engine="nvim-cmp"
-            }
-        },
-        ["core.integrations.nvim-cmp"] = {},
-        ["core.export.markdown"] = {},
-        ["core.export"] = {},
-    }
-}
-
 require("diffview").setup({
   view = {
     -- Configure the layout and behavior of different types of views.

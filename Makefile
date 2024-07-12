@@ -8,7 +8,7 @@ ifeq ($(ARCH), x86_64)
     NEOVIM_ARCH := linux64
 else
     NODE_ARCH := arm64
-    NEOVIM_ARCH := macos
+    NEOVIM_ARCH := macos-arm64
 endif
 
 

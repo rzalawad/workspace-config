@@ -71,7 +71,6 @@ plugins = {
         end
     },
     'tweekmonster/startuptime.vim',
-    'nvim-neorg/neorg',
     'TimUntersberger/neogit',
     'sindrets/diffview.nvim',
     'hkupty/iron.nvim',
@@ -91,6 +90,27 @@ plugins = {
     'theHamsta/nvim-dap-virtual-text',
     'mfussenegger/nvim-dap-python',
     "nyoom-engineering/oxocarbon.nvim",
+    {
+        "amitds1997/remote-nvim.nvim",
+        version = "*",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+        config = true,
+    },
+    {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        branch = "canary",
+        dependencies = {
+            { "zbirenbaum/copilot.lua" },
+            { "nvim-lua/plenary.nvim" },
+        },
+        opts = {
+            debug = true,
+        },
+    },
 }
 
 require("lazy").setup(plugins)
