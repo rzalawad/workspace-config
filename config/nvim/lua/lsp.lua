@@ -254,11 +254,11 @@ rt.setup({
 
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pyright', 'tsserver' }
+local servers = { 'tsserver', 'ruff'}
 for _, lsp in ipairs(servers) do
 
     local root_dir = nil
-    if lsp == 'pyright' then
+    if lsp == 'pyright' or lsp == 'ruff' then
         local cwd = vim.fn.getcwd() .. "/"
         -- config for ndloop
         local index_ndloop = string.find(cwd, "/ndloop/")
