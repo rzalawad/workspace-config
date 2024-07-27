@@ -61,6 +61,11 @@ endif
 	python3 -m pip install Mako
 
 
+starship:
+ifeq ($(OS), Darwin)
+	brew install starship
+endif
+
 nodejs: setup
 	$(eval NODE_JS_VERSION := $(shell curl -s https://nodejs.org/dist/latest/ | grep -o 'href=".*">' \
 		| sed 's/href="//;s/\/">//' \

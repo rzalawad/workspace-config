@@ -1,7 +1,8 @@
-# If you come from bash you might have to change your $PATH.  export PATH=$HOME/bin:/usr/local/bin:$PATH
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ridham/.oh-my-zsh"
+export ZSH="/Users/ridham/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -99,57 +100,41 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# xbindkeys &
-
-source /etc/zsh_command_not_found
-
-if [$(uname -s) == "Linux"]
-then
-    xset r rate 200 70
-    alias resnet='echo sudo systemctl restart networking'
-fi
-
-if [[ $(uname -s) == "Darwin"]]
-then
-    export CC=/opt/homebrew/bin/gcc-12
-fi
-
-alias nvim="~/opt/nvim/bin/nvim"
-alias vim="~/opt/nvim/bin/nvim"
-
-
-# GAME DEV INCLUDES
-# export EIGEN3_INCLUDE_DIR="/home/ridhamzalawadia/lib/eigen-3.3.9/"
-# export GLFW_DIR="/home/ridhamzalawadia/lib/glfw-3.3.2/"
-# export GLEW_DIR="/home/ridhamzalawadia/lib/glew-2.1.0/"
-
-export PATH=$PATH:~/opt/nodejs/bin/
-
-# enable for LUA LANGUAGE SERVER
-# export PATH=$PATH:~/.config/nvim/lua/lua-language-server/bin/
-#
-if [ -n nvidia-smi ]
-then
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib
-    export PATH=$PATH:/usr/local/cuda-11.5/bin
-fi
+alias vim='nvim'
 
 set -o vi
 bindkey "^R" history-incremental-search-backward
 
-alias t='tmux'
-alias ta='t a -t'
-alias tls='t ls'
-alias tn='t new-session -s'
-# Install Ruby Gems to ~/gems
-# export GEM_HOME="$HOME/gems"
-# export PATH="$HOME/gems/bin:$PATH"
+alias ll="ls -alhtr"
+alias t="tmux"
+alias ta="t a -t"
+alias tls="t ls"
+alias tn="t new-session -s"
 
+function pcsv {
+    perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
+}
+
+alias jl="jupyter lab"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# ROS related configs
-# source /opt/ros/humble/setup.zsh
-# export ROS_DOMAIN_ID=1
-# source ~/workspace/install/setup.zsh
+export PATH=$PATH:~/opt/node-v16.16.0-darwin-arm64/bin:~/opt/nvim/bin
+alias vim='nvim'
+git config --global --add oh-my-zsh.hide-dirty 1
+CC=clang
 
-git config --add oh-my-zsh.hide-dirty 1
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE="${HOME}/.local/bin/micromamba";
+export MAMBA_ROOT_PREFIX="${HOME}/micromamba";
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+DOTNET_CLI_TELEMETRY_OPTOUT=1
+alias nvim=~/opt/nvim/bin/nvim
+eval "$(starship init zsh)"
