@@ -1,0 +1,12 @@
+".local/bin":
+  type: archive
+  url: "https://github.com/junegunn/fzf/releases/download/v0.54.2/fzf-0.54.2-{{ .chezmoi.os }}_{{ .chezmoi.arch }}.tar.gz"
+
+".local":
+  type: archive
+  stripComponents: 1
+  {{ if eq .chezmoi.os "darwin" }}
+  url: "https://github.com/neovim/neovim/releases/download/stable/nvim-macos-arm64.tar.gz"
+  {{ else }}
+  url: "https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz"
+  {{ end }}

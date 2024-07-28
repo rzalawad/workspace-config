@@ -1,0 +1,94 @@
+# This is a demo config to bring across some of the most important commands more easily.
+# For a more advanced configuration example see https://github.com/FelixKratz/SketchyBar/discussions/47#discussion-3587958
+
+# E V E N T S
+sketchybar -m --add event window_focus                                                         \
+              --add event title_change
+
+############## BAR ##############
+sketchybar -m --bar height=26                                                                  \
+                    blur_radius=50                                                             \
+                    position=top                                                               \
+                    padding_left=10                                                           \
+                    padding_right=10                                                           \
+                    color=0xda11121D
+
+############## GLOBAL DEFAULTS ##############
+sketchybar -m --default updates=when_shown                                                     \
+                        drawing=on                                                             \
+                        cache_scripts=on                                                       \
+                        icon.font="FuraMono Nerd Font:Regular:16.0"                                   \
+                        icon.color=0xffAFB2B8                                                  \
+                        label.font="FuraMono Nerd Font:Regular:14.0"                                \
+                        label.color=0xffffffff
+
+############## SPACE DEFAULTS ##############
+sketchybar -m --default label.padding_left=2                                                   \
+                        label.padding_right=2                                                  \
+                        icon.padding_left=8                                                    \
+                        label.padding_right=8
+
+############## PRIMARY DISPLAY SPACES ##############
+sketchybar -m --add       item           yabai_spaces left                                     \
+              --set       yabai_spaces   drawing=off                                           \
+                                         updates=on                                            \
+                                         script="~/.config/sketchybar/plugins/yabai_spaces.sh" \
+              --subscribe yabai_spaces   space_change window_created window_destroyed          \
+                                                                                               \
+              --add       item           space_template left                                   \
+              --set       space_template icon.highlight_color=0xff579DC8                       \
+                                         label.font="FuraMono Nerd Font:Regular:15.0"               \
+                                         drawing=off                                           \
+                                         click_script="yabai -m space --focus \$NAME"          \
+                                         lazy=off
+
+############## ITEM DEFAULTS ###############
+sketchybar -m --default label.padding_left=0                                                   \
+                        icon.padding_right=2                                                   \
+                        icon.padding_left=6                                                    \
+                        label.padding_right=6
+
+############## LEFT ITEMS ##############
+sketchybar -m --add item title left \
+              --set title script="$HOME/.config/sketchybar/plugins/window_title.sh"           \
+              --subscribe title window_focus front_app_switched space_change title_change
+
+############## RIGHT ITEMS ##############
+
+sketchybar -m --add item     date right                                                 \
+              --set date     update_freq=10                                             \
+                             script="~/.config/sketchybar/plugins/date-time.sh"         \
+                             icon=""                                                   \
+                             label.padding_right=15                                     \
+                             label.padding_left=10                                      \
+                             icon.padding_left=8                                        \
+                             lazy=off                                                   \
+                                                                                        \
+              --add item     battery right                                              \
+              --set battery  update_freq=3                                              \
+                             script="~/.config/sketchybar/plugins/power.sh"             \
+                             label.padding_right=15                                     \
+                             label.padding_left=10                                      \
+                             icon.padding_left=8                                        \
+                             lazy=off                                                   \
+                                                                                        \
+              --add item     volume right                                               \
+              --set volume   script="~/.config/sketchybar/plugins/volume.sh"            \
+                             update_freq=1                                              \
+                             label.padding_right=15                                     \
+                             label.padding_left=10                                      \
+                             icon.padding_left=8                                        \
+                             lazy=off                                                   \
+                                                                                        \
+              --add item     mic right                                                  \
+              --set mic      update_freq=3                                              \
+                             label.padding_right=15                                     \
+                             icon.padding_left=8                                        \
+              --set mic script="~/.config/sketchybar/plugins/mic.sh"                    \
+              --set mic click_script="~/.config/sketchybar/plugins/mic_click.sh"        \
+                                                                                        \
+
+############## FINALIZING THE SETUP ##############
+sketchybar -m --update
+
+echo "sketchybar configuration loaded.."
