@@ -65,15 +65,6 @@ plugins = {
     'lspcontainers/lspcontainers.nvim',
     -- Rust Tools
     'simrat39/rust-tools.nvim',
-    {
-        'glacambre/firenvim',
-        -- Lazy load firenvim
-        -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
-        lazy = not vim.g.started_by_firenvim,
-        build = function()
-            vim.fn["firenvim#install"](0)
-        end
-    },
     'tweekmonster/startuptime.vim',
     'nvim-neorg/neorg',
     'TimUntersberger/neogit',
@@ -90,7 +81,7 @@ plugins = {
     'MunifTanjim/nui.nvim',
     'jackMort/ChatGPT.nvim',
     'mfussenegger/nvim-dap',
-    'rcarriga/nvim-dap-ui',
+    { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
     'theHamsta/nvim-dap-virtual-text',
     'mfussenegger/nvim-dap-python',
     "nyoom-engineering/oxocarbon.nvim",
