@@ -3,7 +3,7 @@
 {{ if eq .chezmoi.os "linux" -}}
 
 sudo apt install ripgrep zsh -y
-sudo chsh -s $(which zsh)
+sudo chsh -s $(which zsh) $USER
 
 {{ else if eq .chezmoi.os "darwin" -}}
 brew install ripgrep zsh
