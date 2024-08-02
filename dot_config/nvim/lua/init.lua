@@ -8,8 +8,6 @@ require('snips')
 require('general')
 require('debugging')
 
-require('linting')
-
 -- neorg setup must be called after treesitter config
 require('neorg').setup {
     load = {

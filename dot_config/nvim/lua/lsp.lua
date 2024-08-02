@@ -223,7 +223,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>f', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 end
 
@@ -254,50 +254,18 @@ rt.setup({
 })
 
 
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pyright', 'tsserver' }
-for _, lsp in ipairs(servers) do
-
-    local root_dir = nil
-    if lsp == 'pyright' then
-        local cwd = vim.fn.getcwd() .. "/"
-        -- config for ndloop
-        local index_ndloop = string.find(cwd, "/ndloop/")
-        local index_ndaq = string.find(cwd, "/ndaq/")
-        if index_ndloop then
-            root_dir = function(startpath)
-                return string.sub(startpath, 0, index_ndloop)
-            end
-        elseif index_ndaq then
-            root_dir = function(startpath)
-                return string.sub(startpath, 0, index_ndaq)
-            end
-        end
-
-        if root_dir then
-            nvim_lsp[lsp].setup {
-                capabilities = capabilities,
-                on_attach = on_attach,
-                root_dir = root_dir
+nvim_lsp.ruff.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    init_options = {
+        settings = {
+            lineLength = 100,
+            lint = {
+              select = {"E", "F", "I"}
             }
-        else
-
-            root_dir = lsp_util.find_git_ancestor
-            nvim_lsp[lsp].setup {
-                capabilities = capabilities,
-                on_attach = on_attach,
-                root_dir = root_dir,
-            }
-        end
-    else
-        nvim_lsp[lsp].setup {
-            on_attach = on_attach,
-            capabilities = capabilities,
-            root_dir = root_dir
         }
-    end
-end
-
+    }
+}
 
 -- clangd setup
 

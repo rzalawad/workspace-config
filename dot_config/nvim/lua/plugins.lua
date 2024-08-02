@@ -32,7 +32,6 @@ plugins = {
     'vigoux/oak',
     'dhruvasagar/vim-table-mode',
     'chrisbra/csv.vim',
-    'dense-analysis/ale',
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     -- 'tpope/vim-fugitive',
     'tpope/vim-surround',
