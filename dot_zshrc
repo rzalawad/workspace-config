@@ -142,4 +142,4 @@ function source_file_if_exists() {
   local file="$1"
   [[ -f $file ]] && source $file
 }
-source_file_if_exists ~/.work-config
+source_file_if_exists $(HOME)/.work-config.zsh
