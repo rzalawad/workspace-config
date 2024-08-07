@@ -165,3 +165,4 @@ elif [ -f "${HOME}/micromamba/etc/profile.d/micromamba.sh" ]; then
 else
 fi
 
+alias kss="kitty +kitten ssh"

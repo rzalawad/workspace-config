@@ -206,7 +206,6 @@ vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<C
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-
     -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- Mappings.
@@ -261,10 +260,30 @@ nvim_lsp.ruff.setup {
         settings = {
             lineLength = 100,
             lint = {
-              select = {"E", "F", "I"}
+                select = { "E", "F", "I" }
             }
         }
     }
+}
+
+nvim_lsp.pyright.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    handlers = {
+        ["textDocument/publishDiagnostics"] = function() end,
+    },
+    settings = {
+        pyright = {
+            disableOrganizeImports = true, -- Using Ruff
+        },
+        python = {
+            analysis = {
+                diagnosticMode = 'off',
+                ignore = { '*' },         -- Using Ruff
+                typeCheckingMode = 'off', -- Using mypy
+            },
+        },
+    },
 }
 
 -- clangd setup
@@ -301,16 +320,16 @@ require("clangd_extensions").setup {
         },
         commands = {
             ClangdSwitchSourceHeader = {
-                function() switch_source_header_splitcmd(0, "tabedit") end;
-                description = "Open source/header in current buffer";
+                function() switch_source_header_splitcmd(0, "tabedit") end,
+                description = "Open source/header in current buffer",
             },
             ClangdSwitchSourceHeaderVSplit = {
-                function() switch_source_header_splitcmd(1, "vsplit") end;
-                description = "Open source/header in a new vsplit";
+                function() switch_source_header_splitcmd(1, "vsplit") end,
+                description = "Open source/header in a new vsplit",
             },
             ClangdSwitchSourceHeaderSplit = {
-                function() switch_source_header_splitcmd(0, "split") end;
-                description = "Open source/header in a new split";
+                function() switch_source_header_splitcmd(0, "split") end,
+                description = "Open source/header in a new split",
             }
         }
     }
@@ -326,7 +345,6 @@ nvim_lsp.dockerls.setup {
 }
 
 nvim_lsp.lua_ls.setup {
-    cmd = require 'lspcontainers'.command('lua_ls'),
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
