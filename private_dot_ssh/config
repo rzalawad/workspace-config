@@ -1,0 +1,7 @@
+Include personal
+Include work
+
+Host github.com
+  User rzalawad
+  HostName github.com
+  IdentityFile ~/.ssh/rz_git
