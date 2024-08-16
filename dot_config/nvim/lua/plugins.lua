@@ -93,6 +93,10 @@ plugins = {
            "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
        },
        config = true,
+    },
+    {
+      "olimorris/onedarkpro.nvim",
+      priority = 1000, -- Ensure it loads first
     }
 }
 
