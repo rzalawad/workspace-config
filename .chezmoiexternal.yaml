@@ -1,6 +1,11 @@
 ".local/bin":
   type: archive
   url: "https://github.com/junegunn/fzf/releases/download/v0.54.2/fzf-0.54.2-{{ .chezmoi.os }}_{{ .chezmoi.arch }}.tar.gz"
+".local/bin/mlr":
+  type: archive-file
+  url: https://github.com/johnkerl/miller/releases/download/v6.12.0/miller-6.12.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz
+  path: "miller-6.12.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}/mlr"
+
 
 ".local":
   type: archive
