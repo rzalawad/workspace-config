@@ -14,9 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 
 plugins = {
     'lukas-reineke/indent-blankline.nvim',
-    'vim-airline/vim-airline',
     'jaredgorski/spacecamp',
-    'vim-airline/vim-airline-themes',
+    'itchyny/lightline.vim',
     'chriskempson/base16-vim',
     'jacoborus/tender.vim',
     'lervag/vimtex',

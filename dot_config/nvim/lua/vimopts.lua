@@ -53,9 +53,6 @@ require("onedarkpro").setup({
 })
 
 vim.cmd("colorscheme onedark_vivid")
-vim.g["airline#extensions#searchcount#enabled"] = 0
-vim.g["airline#extensions#searchcount#show_search_term"] = 0
-
 
 -- highlight
 function highlight_create(name, val)
