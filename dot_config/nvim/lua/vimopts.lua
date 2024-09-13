@@ -95,3 +95,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "WinNew", "VimResized" }, 
 -- jupytext
 vim.g.jupytext_fmt = 'py'
 vim.g.jupytext_style = 'hydrogen'
+
+-- vim table mode
+vim.g.table_mode_corner = '|'
