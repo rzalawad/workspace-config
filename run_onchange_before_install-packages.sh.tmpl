@@ -9,6 +9,7 @@ sudo chsh -s $(which zsh) $USER
 brew install ripgrep zsh
 {{ end -}}
 curl -sS https://starship.rs/install.sh > /tmp/starship-install.sh
+mkdir -p ${HOME}/.local/bin/
 sh /tmp/starship-install.sh --bin-dir ${HOME}/.local/bin -y
 rm /tmp/starship-install.sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended || true
