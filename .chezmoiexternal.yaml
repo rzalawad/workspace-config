@@ -6,7 +6,6 @@
   url: https://github.com/johnkerl/miller/releases/download/v6.12.0/miller-6.12.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz
   path: "miller-6.12.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}/mlr"
 
-
 ".local":
   type: archive
   stripComponents: 1
@@ -15,3 +14,24 @@
   {{ else }}
   url: "https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz"
   {{ end }}
+
+".local/bin/go":
+  type: archive-file
+  url: "https://go.dev/dl/go1.23.1.{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
+  path: "go/bin/go"
+
+".local/bin/gofmt":
+  type: archive-file
+  url: "https://go.dev/dl/go1.23.1.{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
+  path: "go/bin/gofmt"
+
+".local/bin/kind":
+  type: file
+  url: "https://kind.sigs.k8s.io/dl/v0.24.0/kind-{{ .chezmoi.os }}-{{ .chezmoi.arch }}"
+  executable: true
+
+".local/bin/helm":
+  type: archive-file
+  url: "https://get.helm.sh/helm-v3.16.1-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
+  executable: true
+  path: "{{ .chezmoi.os }}-{{ .chezmoi.arch }}/helm"

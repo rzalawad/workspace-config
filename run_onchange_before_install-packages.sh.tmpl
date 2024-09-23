@@ -8,8 +8,16 @@ sudo chsh -s $(which zsh) $USER
 {{ else if eq .chezmoi.os "darwin" -}}
 brew install ripgrep zsh
 {{ end -}}
+
+# starfish
 curl -sS https://starship.rs/install.sh > /tmp/starship-install.sh
 mkdir -p ${HOME}/.local/bin/
 sh /tmp/starship-install.sh --bin-dir ${HOME}/.local/bin -y
 rm /tmp/starship-install.sh
+
+# oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended || true
+
+# install rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
+
