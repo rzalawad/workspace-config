@@ -15,15 +15,11 @@
   url: "https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz"
   {{ end }}
 
-".local/bin/go":
-  type: archive-file
+".local/go":
+  type: archive
   url: "https://go.dev/dl/go1.23.1.{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
-  path: "go/bin/go"
-
-".local/bin/gofmt":
-  type: archive-file
-  url: "https://go.dev/dl/go1.23.1.{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
-  path: "go/bin/gofmt"
+  stripComponents: 1
+  exact: true
 
 ".local/bin/kind":
   type: file
