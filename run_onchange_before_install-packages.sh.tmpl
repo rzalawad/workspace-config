@@ -25,4 +25,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify
 mkdir -p ${HOME}/.local && cd ${HOME}/.local && wget https://go.dev/dl/go1.23.1.{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz && tar -xf  go1.23.1.{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz && rm go1.23.1.{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz
 
 # install node
+{{ if eq .chezmoi.arch "amd64" -}}
+mkdir -p ${HOME}/.local/node && cd ${HOME}/.local/node && wget https://nodejs.org/dist/v20.17.0/node-v20.17.0-{{ .chezmoi.os }}-x64.tar.gz && tar --strip-components=1 -xf node-v20.17.0-{{ .chezmoi.os }}-x64.tar.gz && rm node-v20.17.0-{{ .chezmoi.os }}-x64.tar.gz
+{{ else }}
 mkdir -p ${HOME}/.local/node && cd ${HOME}/.local/node && wget https://nodejs.org/dist/v20.17.0/node-v20.17.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz && tar --strip-components=1 -xf node-v20.17.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz && rm node-v20.17.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz
+{{ end -}}
