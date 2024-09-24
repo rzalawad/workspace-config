@@ -194,3 +194,6 @@ if command -v go &> /dev/null; then
     export PATH=$PATH:$(go env GOPATH)/bin
 fi
 
+if [[ -d "$HOME/.local/node" ]]; then
+    export PATH=$PATH:$HOME/.local/node/bin
+fi

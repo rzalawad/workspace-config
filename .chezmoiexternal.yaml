@@ -15,12 +15,6 @@
   url: "https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz"
   {{ end }}
 
-".local/go":
-  type: archive
-  url: "https://go.dev/dl/go1.23.1.{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
-  stripComponents: 1
-  exact: true
-
 ".local/bin/kind":
   type: file
   url: "https://kind.sigs.k8s.io/dl/v0.24.0/kind-{{ .chezmoi.os }}-{{ .chezmoi.arch }}"
@@ -31,3 +25,4 @@
   url: "https://get.helm.sh/helm-v3.16.1-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
   executable: true
   path: "{{ .chezmoi.os }}-{{ .chezmoi.arch }}/helm"
+
