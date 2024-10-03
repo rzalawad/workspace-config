@@ -97,14 +97,10 @@ plugins = {
         priority = 1000, -- Ensure it loads first
     },
     {
-        "CopilotC-Nvim/CopilotChat.nvim",
-        branch = "canary",
-        dependencies = {
-            { "zbirenbaum/copilot.lua" },
-            { "nvim-lua/plenary.nvim" },
-        },
-        build = "make tiktoken",
-        opts = {},
+        "zbirenbaum/copilot-cmp",
+        config = function()
+            require("copilot_cmp").setup()
+        end
     },
     {
         "yetone/avante.nvim",

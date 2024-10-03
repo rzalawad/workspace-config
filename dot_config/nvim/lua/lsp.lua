@@ -79,8 +79,10 @@ require('lspkind').init({
         Event = "",
         Operator = "",
         TypeParameter = "",
+        Copilot = "",
     },
 })
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -115,9 +117,29 @@ vim.diagnostic.config(config)
 
 
 cmp.setup {
+    experimental = {
+        ghost_text = true
+    },
+    completion = {
+        autocomplete = {
+            cmp.TriggerEvent.TextChanged,
+            cmp.TriggerEvent.InsertEnter,
+        },
+        completeopt = "menuone,noinsert,noselect",
+        keyword_length = 1,
+    },
     mapping = {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
+        ['<C-n>'] = {
+            i = function()
+                if cmp.visible() then
+                    return cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+                else
+                    return cmp.complete()
+                    -- return vim.schedule_wrap(cmp.complete())
+                end
+            end,
+        },
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-e>'] = cmp.mapping.close(),
@@ -156,12 +178,14 @@ cmp.setup {
             menu = {
                 buffer = "[buf]",
                 nvim_lsp = "[LSP]",
+                copilot = "[Copilot]",
                 path = "[path]",
                 luasnip = "[snip]",
             }
         },
     },
     sources = cmp.config.sources({
+        { name = "copilot", keywork_length = 0 },
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- For luasnip users.
         { name = 'path' },
