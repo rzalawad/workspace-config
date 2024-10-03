@@ -185,7 +185,7 @@ cmp.setup {
         },
     },
     sources = cmp.config.sources({
-        { name = "copilot", keywork_length = 0 },
+        { name = "copilot", keyword_length = 0 },
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- For luasnip users.
         { name = 'path' },
