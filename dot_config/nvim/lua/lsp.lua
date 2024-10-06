@@ -293,19 +293,22 @@ nvim_lsp.ruff.setup {
 
 nvim_lsp.pyright.setup {
     on_attach = on_attach,
-    capabilities = capabilities,
-    handlers = {
-        ["textDocument/publishDiagnostics"] = function() end,
-    },
+    capabilities = (function()
+        local pyright_capabilities = vim.lsp.protocol.make_client_capabilities()
+        pyright_capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
+        return pyright_capabilities
+    end)(),
     settings = {
         pyright = {
             disableOrganizeImports = true, -- Using Ruff
         },
         python = {
             analysis = {
-                diagnosticMode = 'off',
-                ignore = { '*' },         -- Using Ruff
-                typeCheckingMode = 'off', -- Using mypy
+                useLibraryCodeForTypes = true,
+                diagnosticSeverityOverrides = {
+                    reportUnusedVariable = "warning", -- or anything
+                },
+                typeCheckingMode = "basic",
             },
         },
     },
