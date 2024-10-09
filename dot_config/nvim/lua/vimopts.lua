@@ -16,7 +16,6 @@ opt.wrap = true
 opt.scrolloff = 10
 opt.signcolumn = "yes"
 opt.laststatus = 2
-opt.clipboard = "unnamed"
 opt.colorcolumn = "100"
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
