@@ -97,3 +97,7 @@ vim.g.jupytext_style = 'hydrogen'
 
 -- vim table mode
 vim.g.table_mode_corner = '|'
+
+-- markdown preview
+vim.g.mkdp_port = 10000
+vim.g.mkdp_echo_preview_url = 1
