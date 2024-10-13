@@ -35,3 +35,7 @@
   {{ end }}
   executable: true
   path: "difft"
+".local/bin/kubectl":
+  type: file
+  executable: true
+  url: "https://dl.k8s.io/release/v1.31.1/bin/{{ .chezmoi.os }}/{{ .chezmoi.arch }}/kubectl"

@@ -102,6 +102,7 @@ plugins = {
             require("copilot_cmp").setup()
         end
     },
+    { "zbirenbaum/copilot.lua" },
     {
         "yetone/avante.nvim",
         event = "VeryLazy",
