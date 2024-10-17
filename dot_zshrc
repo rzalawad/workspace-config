@@ -166,18 +166,22 @@ elif [ -f "${HOME}/micromamba/etc/profile.d/micromamba.sh" ]; then
 else
 fi
 
+
 function pretty_csv {
-    if [[ $# -ne 1 ]]; then
-        echo "Usage: pretty_csv <file.csv>"
+    if [[ $# -gt 1 ]]; then
+        echo "Usage: pretty_csv [file.csv] or cat file.csv | pretty_csv"
         return 1
     fi
 
-    if [[ ! -f $1 ]]; then
-        echo "Error: File '$1' not found."
-        return 1
+    if [[ $# -eq 1 ]]; then
+        if [[ ! -f $1 ]]; then
+            echo "Error: File '$1' not found."
+            return 1
+        fi
+        mlr --icsv --opprint --barred cat "$1" | less -S
+    else
+        mlr --icsv --opprint --barred cat | less -S
     fi
-
-    mlr --icsv --opprint --barred cat "$1" | less -S
 }
 
 
