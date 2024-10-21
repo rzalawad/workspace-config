@@ -146,7 +146,7 @@ if [ -f "/opt/conda/etc/profile.d/conda.sh" ]; then
     fi
     conda activate base
     unset __conda_setup
-elif [ -f "${HOME}/micromamba/etc/profile.d/micromamba.sh" ]; then
+elif [ -f "${HOME}/micromamba/etc/profile.d/mamba.sh" ]; then
 
     export MAMBA_EXE="${HOME}/.local/bin/micromamba";
     export MAMBA_ROOT_PREFIX="${HOME}/micromamba";
@@ -154,8 +154,8 @@ elif [ -f "${HOME}/micromamba/etc/profile.d/micromamba.sh" ]; then
     if [ $? -eq 0 ]; then
         eval "$__mamba_setup"
     else
-        if [ -f "${HOME}/micromamba/etc/profile.d/micromamba.sh" ]; then
-            . "${HOME}/micromamba/etc/profile.d/micromamba.sh"
+        if [ -f "${HOME}/micromamba/etc/profile.d/mamba.sh" ]; then
+            . "${HOME}/micromamba/etc/profile.d/mamba.sh"
         else
             export  PATH="${HOME}/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
         fi
