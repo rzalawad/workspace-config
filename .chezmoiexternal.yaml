@@ -35,7 +35,14 @@
   {{ end }}
   executable: true
   path: "difft"
+
 ".local/bin/kubectl":
   type: file
   executable: true
   url: "https://dl.k8s.io/release/v1.31.1/bin/{{ .chezmoi.os }}/{{ .chezmoi.arch }}/kubectl"
+
+".local/bin/k9s":
+  type: archive-file
+  executable: true
+  url: "https://github.com/derailed/k9s/releases/download/v0.32.5/k9s_{{ .chezmoi.os }}_{{ .chezmoi.arch }}.tar.gz"
+  path: k9s
