@@ -2,11 +2,12 @@
 
 {{ if eq .chezmoi.os "linux" -}}
 
-sudo apt install ripgrep zsh -y
+sudo apt install ripgrep zsh imagemagick -y
 sudo chsh -s $(which zsh) $USER
 
 {{ else if eq .chezmoi.os "darwin" -}}
-brew install ripgrep zsh
+brew install ripgrep
+brew install imagemagick ghostscript
 {{ end -}}
 
 # starfish
