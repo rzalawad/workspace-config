@@ -3,6 +3,7 @@
 {{ if eq .chezmoi.os "linux" -}}
 
 sudo apt install ripgrep zsh imagemagick -y
+curl https://imagemagick.org/archive/binaries/magick -O ${HOME}/.local/bin/magick && chmod +x ${HOME}/.local/bin/magick
 sudo chsh -s $(which zsh) $USER
 
 {{ else if eq .chezmoi.os "darwin" -}}
