@@ -84,10 +84,10 @@ plugins = {
     "nyoom-engineering/oxocarbon.nvim",
     {
         "amitds1997/remote-nvim.nvim",
-        version = "*",                      -- Pin to GitHub releases
+        version = "*",                       -- Pin to GitHub releases
         dependencies = {
-            "nvim-lua/plenary.nvim",        -- For standard functions
-            "MunifTanjim/nui.nvim",         -- To build the plugin UI
+            "nvim-lua/plenary.nvim",         -- For standard functions
+            "MunifTanjim/nui.nvim",          -- To build the plugin UI
             "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
         },
         config = true,
@@ -101,6 +101,34 @@ plugins = {
         config = function()
             require("copilot_cmp").setup()
         end
+    },
+    {
+        'stevearc/dressing.nvim',
+        opts = {},
+    },
+    { "nvim-tree/nvim-web-devicons" },
+    {
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+            default = {
+                embed_image_as_base64 = false,
+                prompt_for_file_name = false,
+                drag_and_drop = {
+                    insert_mode = true,
+                },
+            },
+        },
+        keys = {
+            { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+        },
+    },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+            file_types = { "markdown" },
+        },
+        ft = { "markdown" },
     },
     { "zbirenbaum/copilot.lua" },
     {
@@ -120,7 +148,7 @@ plugins = {
             "MunifTanjim/nui.nvim",
             --- The below dependencies are optional,
             "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-            "zbirenbaum/copilot.lua", -- for providers='copilot'
+            "zbirenbaum/copilot.lua",      -- for providers='copilot'
             {
                 -- support for image pasting
                 "HakonHarnes/img-clip.nvim",
@@ -133,8 +161,6 @@ plugins = {
                         drag_and_drop = {
                             insert_mode = true,
                         },
-                        -- required for Windows users
-                        use_absolute_path = true,
                     },
                 },
             },
