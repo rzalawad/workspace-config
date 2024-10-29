@@ -1,13 +1,13 @@
 function map(mode, shortcut, command)
-  vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true})
+    vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true })
 end
 
 function nmap(shortcut, command)
-  map('n', shortcut, command)
+    map('n', shortcut, command)
 end
 
 function imap(shortcut, command)
-  map('i', shortcut, command)
+    map('i', shortcut, command)
 end
 
 -- Telescope Using Lua functions
@@ -51,3 +51,12 @@ vim.g.mkdp_preview_options = {
 -- slime
 vim.g.slime_target = "tmux"
 vim.g.slime_python_ipython = 1
+
+
+-- telescope keymaps
+vim.keymap.set(
+    "n",
+    "<S-h>",
+    "<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal theme=ivy<cr>",
+    { desc = "[P]Open telescope buffers" }
+)
