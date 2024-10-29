@@ -96,6 +96,10 @@ require('telescope').setup {
         mappings = {
             i = {
                 ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            },
+            n = {
+                ["<Space>bd"] = actions.delete_buffer,
+                ["<Space>bq"] = actions.close,
             }
         }
     }

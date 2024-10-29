@@ -28,8 +28,6 @@ nmap("<leader>h", "<cmd>tabprev<cr>")
 -- Close the current buffer and move to the previous one
 -- This replicates the idea of closing a tab
 nmap("<leader>q", "<cmd>bp <BAR> bd #<cr>")
--- Show all open buffers and their status
-nmap("<leader>bl", "<cmd>ls<cr>")
 imap("jj", "<Esc>")
 vim.api.nvim_set_keymap("n", "<Leader>x", "<Leader>sih/^# %%<CR><CR>", {})
 
@@ -56,7 +54,7 @@ vim.g.slime_python_ipython = 1
 -- telescope keymaps
 vim.keymap.set(
     "n",
-    "<S-h>",
+    "<Leader>bl",
     "<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal theme=ivy<cr>",
     { desc = "[P]Open telescope buffers" }
 )
