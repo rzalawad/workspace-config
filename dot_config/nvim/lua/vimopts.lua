@@ -51,7 +51,7 @@ require("onedarkpro").setup({
     }
 })
 
-vim.cmd("colorscheme onedark_vivid")
+vim.cmd("colorscheme onedark_dark")
 
 -- highlight
 function highlight_create(name, val)
