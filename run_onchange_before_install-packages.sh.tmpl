@@ -3,11 +3,11 @@
 {{ if eq .chezmoi.os "linux" -}}
 
 sudo apt update
-sudo apt install ripgrep zsh gh -y
+sudo apt install ripgrep zsh -y
 sudo chsh -s $(which zsh) $USER
 
 {{ else if eq .chezmoi.os "darwin" -}}
-brew install ripgrep gh
+brew install ripgrep
 {{ end -}}
 
 # starfish
