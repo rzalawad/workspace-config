@@ -196,6 +196,7 @@ plugins = {
         opts = {
             open_mapping = [[<Space>t]],
             insert_mappings = false,
+            direction = "float"
         }
     },
     {
