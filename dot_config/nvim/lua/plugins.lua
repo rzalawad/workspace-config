@@ -191,6 +191,14 @@ plugins = {
         },
     },
     {
+        'akinsho/toggleterm.nvim',
+        version = "*",
+        opts = {
+            open_mapping = [[<Space>t]],
+            insert_mappings = false,
+        }
+    },
+    {
         'pwntester/octo.nvim',
         dependencies = {
             'nvim-lua/plenary.nvim',
