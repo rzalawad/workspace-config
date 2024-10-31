@@ -65,6 +65,6 @@
   {{ if eq .chezmoi.os "darwin" }}
   url: https://github.com/cli/cli/releases/download/v2.60.1/gh_2.60.1_macOS_arm64.zip
   {{ else }}
-  url: https://github.com/cli/cli/releases/download/v2.60.1/gh_2.60.1_linux_{{ .chemzoi.arch }}.tar.gz
+  url: https://github.com/cli/cli/releases/download/v2.60.1/gh_2.60.1_linux_{{ .chezmoi.arch }}.tar.gz
   {{ end }}
   path: bin/gh
