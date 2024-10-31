@@ -28,7 +28,23 @@ plugins = {
     'tjdevries/colorbuddy.vim',
     'sainnhe/edge',
     'vigoux/oak',
-    'dhruvasagar/vim-table-mode',
+    {
+        'dhruvasagar/vim-table-mode',
+        init = function()
+            vim.g.table_mode_map_prefix = '\\t'
+            vim.g.table_mode_realign_map = '\\tr'
+            vim.g.table_mode_delete_row_map = '\\tdd'
+            vim.g.table_mode_delete_column_map = '\\tdc'
+            vim.g.table_mode_insert_column_before_map = '\\tiC'
+            vim.g.table_mode_insert_column_after_map = '\\tic'
+            vim.g.table_mode_add_formula_map = '\\tfa'
+            vim.g.table_mode_eval_formula_map = '\\tfe'
+            vim.g.table_mode_echo_cell_map = '\\t?'
+            vim.g.table_mode_sort_map = '\\ts'
+            vim.g.table_mode_tableize_map = '\\tt'
+            vim.g.table_mode_tableize_d_map = '\\T'
+        end
+    },
     'chrisbra/csv.vim',
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     -- 'tpope/vim-fugitive',
