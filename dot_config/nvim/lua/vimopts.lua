@@ -100,3 +100,7 @@ vim.g.table_mode_corner = '|'
 -- markdown preview
 vim.g.mkdp_port = 10000
 vim.g.mkdp_echo_preview_url = 1
+
+-- toggleterm keymaps
+local keymap = vim.keymap.set
+keymap('t', '<Leader>te', "<C-\\><C-n>")  -- escape terminal to view history
