@@ -42,7 +42,8 @@ vim.api.nvim_set_keymap("v", "<Leader>ei", [[ <Esc><Cmd>lua require('refactoring
 -- Inline variable can also pick up the identifier currently under the cursor without visual mode
 -- vim.api.nvim_set_keymap("n", "<Leader>ri", [[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], {noremap = true, silent = true, expr = false})
 
-local nvim_lsp = require 'lspconfig'
+local nvim_lsp = require('lspconfig')
+local lspcontainers = require('lspcontainers')
 -- Set completeopt to have a better completion experience
 -- vim.o.completeopt = 'menuone,noselect'
 
@@ -368,7 +369,7 @@ nvim_lsp.dockerls.setup {
     before_init = function(params)
         params.processId = vim.NIL
     end,
-    cmd = require 'lspcontainers'.command('dockerls'),
+    cmd = lspcontainers.command('dockerls'),
     root_dir = nvim_lsp.util.root_pattern(".git", vim.fn.getcwd()),
 }
 
@@ -393,4 +394,10 @@ nvim_lsp.lua_ls.setup {
             },
         },
     },
+}
+
+nvim_lsp.terraformls.setup {
+  on_attach = on_attach,
+  cmd = lspcontainers.command('terraformls'),
+  filetypes = { "hcl", "tf", "terraform", "tfvars" },
 }
