@@ -10,7 +10,6 @@ cmd + lctrl - 3 : yabai -m window --space 3
 cmd + lctrl - 4 : yabai -m window --space 4
 cmd + lctrl - 5 : yabai -m window --space 5
 lctrl + alt - f : yabai -m window --toggle zoom-fullscreen
-cmd - b : open -a "Brave Browser" -n
 cmd + alt - t : open -a "kitty" -n --args --single-instance
 
 alt - 1 : yabai -m space --destroy 1
