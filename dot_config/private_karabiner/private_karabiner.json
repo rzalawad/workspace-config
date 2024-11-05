@@ -185,10 +185,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open '/Applications/ChatGPT.crwebloc'"
+                    "shell_command": "open -a 'ChatGPT.app'"
                   }
                 ],
-                "description": "Open '/Applications/ChatGPT.crwebloc'",
+                "description": "Open -a 'ChatGPT.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "c",
