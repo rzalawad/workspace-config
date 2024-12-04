@@ -222,6 +222,11 @@ plugins = {
                 desc = "Buffer Local Keymaps (which-key)",
             },
         },
+    },
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        dependencies = { "nvim-tree/nvim-web-devicons" },
     }
 }
 
