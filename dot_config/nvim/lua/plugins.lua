@@ -145,6 +145,27 @@ plugins = {
             file_types = { "markdown" },
         },
         ft = { "markdown" },
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            require('render-markdown').setup({
+                enabled = true,
+                position = 'inline',
+                checkbox = {
+                    unchecked = { icon = '✘ ' },
+                    -- checked = { icon = '✔ ', scope_highlight = nil },
+                    checked = {
+                        -- icon = '󰱒 ',
+                        icon = '✔ ',
+                        highlight = 'RenderMarkdownChecked',
+                        scope_highlight = nil,
+                    },
+                    custom = {
+                        todo = { raw = '[-]', rendered = '󰥔 ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
+                        important = { raw = '[~]', rendered = '󰓎 ', highlight = 'DiagnosticWarn' },
+                    },
+                },
+            })
+        end,
     },
     { "zbirenbaum/copilot.lua" },
     {

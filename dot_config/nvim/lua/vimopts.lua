@@ -47,6 +47,9 @@ require("onedarkpro").setup({
         parameters = "italic",
         conditionals = "italic",
         virtual_text = "NONE",
+    },
+    highlights = {
+        ["@markup.list.checked"] = { bg = "", fg = "${green}" },
     }
 })
 
@@ -103,4 +106,4 @@ vim.g.mkdp_echo_preview_url = 1
 
 -- toggleterm keymaps
 local keymap = vim.keymap.set
-keymap('t', '<Leader>te', "<C-\\><C-n>")  -- escape terminal to view history
+keymap('t', '<Leader>te', "<C-\\><C-n>") -- escape terminal to view history
