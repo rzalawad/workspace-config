@@ -68,3 +68,12 @@
   url: https://github.com/cli/cli/releases/download/v2.60.1/gh_2.60.1_linux_{{ .chezmoi.arch }}.tar.gz
   {{ end }}
   path: bin/gh
+
+".local/bin/marksman":
+  type: file
+  executable: true
+  {{ if eq .chezmoi.os "darwin" }}
+  url: https://github.com/artempyanykh/marksman/releases/download/2024-12-04/marksman-macos
+  {{ else }}
+  url: https://github.com/artempyanykh/marksman/releases/download/2024-12-04/marksman-linux-x64
+  {{ end }}
