@@ -227,7 +227,28 @@ plugins = {
         'stevearc/oil.nvim',
         opts = {},
         dependencies = { "nvim-tree/nvim-web-devicons" },
-    }
+    },
+    {
+        "echasnovski/mini.ai",
+        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+        config = function()
+            require("mini.ai").setup()
+            local utils = require('utils')
+            utils.on_load("which-key.nvim", function()
+                vim.schedule(function()
+                    utils.ai_whichkey({})
+                end)
+            end)
+        end,
+    },
+
+    -- markdown plugins
+    {
+        "bullets-vim/bullets.vim"
+    },
+
+
+
 }
 
 require("lazy").setup(plugins)
