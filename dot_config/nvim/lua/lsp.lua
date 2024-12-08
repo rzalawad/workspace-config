@@ -401,3 +401,5 @@ nvim_lsp.terraformls.setup {
   cmd = lspcontainers.command('terraformls'),
   filetypes = { "hcl", "tf", "terraform", "tfvars" },
 }
+
+nvim_lsp.marksman.setup{}
