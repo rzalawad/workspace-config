@@ -397,9 +397,12 @@ nvim_lsp.lua_ls.setup {
 }
 
 nvim_lsp.terraformls.setup {
-  on_attach = on_attach,
-  cmd = lspcontainers.command('terraformls'),
-  filetypes = { "hcl", "tf", "terraform", "tfvars" },
+    on_attach = on_attach,
+    cmd = lspcontainers.command('terraformls'),
+    filetypes = { "hcl", "tf", "terraform", "tfvars" },
 }
 
-nvim_lsp.marksman.setup{}
+nvim_lsp.marksman.setup {
+    on_attach = on_attach,
+    filetypes = { 'markdown' }
+}
