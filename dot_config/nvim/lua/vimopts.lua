@@ -27,6 +27,8 @@ opt.completeopt = "menu,menuone"
 opt.ignorecase = true
 opt.smartcase = true
 
+opt.textwidth = 100
+
 vim.g.completion_matching_strategy_list = { 'exact', 'substring', 'fuzzy' }
 
 -- colorscheme
