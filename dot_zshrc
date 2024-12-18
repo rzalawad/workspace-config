@@ -210,3 +210,5 @@ if command -v bat &>/dev/null; then
     alias catt='bat'
     alias cata='bat --show-all --paging=never'
 fi
+
+alias gs="git status"
