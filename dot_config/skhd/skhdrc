@@ -21,3 +21,8 @@ alt - 5 : yabai -m space --destroy 5
 lctrl + alt - c : /Users/ridham.zalawadia/.config/yabai/cycle_clockwise.sh
 
 lctrl + alt - e : yabai -m window --focus next || yabai -m window --focus first
+
+alt - c : bash -c '$HOME/.config/scripts/append_copy_mac.sh'
+
+alt + shift - c : pbcopy < /dev/null
+
