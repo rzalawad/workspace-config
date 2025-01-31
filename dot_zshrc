@@ -203,7 +203,7 @@ if [[ -d "$HOME/.local/node" ]]; then
     export PATH=$PATH:$HOME/.local/node/bin
 fi
 
-if [[ -d "$HOME/.local/kitty.app/bin/kitty" ]]; then
+if [[ -d "$HOME/.local/kitty.app" ]]; then
     export PATH=$PATH:$HOME/.local/kitty.app/bin
 fi
 
