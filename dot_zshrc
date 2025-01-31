@@ -203,6 +203,10 @@ if [[ -d "$HOME/.local/node" ]]; then
     export PATH=$PATH:$HOME/.local/node/bin
 fi
 
+if [[ -d "$HOME/.local/kitty.app/bin/kitty" ]]; then
+    export PATH=$PATH:$HOME/.local/kitty.app/bin
+fi
+
 if command -v bat &>/dev/null; then
     # --style=plain - removes line numbers and git modifications
     # --paging=never - doesnt pipe it through less
@@ -212,3 +216,5 @@ if command -v bat &>/dev/null; then
 fi
 
 alias gs="git status"
+alias wget="wget --content-disposition"
+alias icat="kitty +kitten icat"
