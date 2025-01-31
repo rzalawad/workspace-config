@@ -77,3 +77,8 @@
   {{ else }}
   url: https://github.com/artempyanykh/marksman/releases/download/2024-12-04/marksman-linux-x64
   {{ end }}
+
+".local/bin/kitten":
+  type: file
+  executable: true
+  url: https://github.com/kovidgoyal/kitty/releases/download/v0.39.0/kitten-{{ .chezmoi.os }}-{{ .chezmoi.arch }}
