@@ -77,3 +77,9 @@
   {{ else }}
   url: https://github.com/artempyanykh/marksman/releases/download/2024-12-04/marksman-linux-x64
   {{ end }}
+
+".local/bin/lf":
+  type: archive-file
+  url: "https://github.com/gokcehan/lf/releases/download/r33/lf-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
+  executable: true
+  path: "lf"
