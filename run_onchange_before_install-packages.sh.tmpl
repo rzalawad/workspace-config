@@ -31,6 +31,7 @@ mkdir -p ${HOME}/.local/node && cd ${HOME}/.local/node && wget https://nodejs.or
 {{ else }}
 mkdir -p ${HOME}/.local/node && cd ${HOME}/.local/node && wget https://nodejs.org/dist/v20.17.0/node-v20.17.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz && tar --strip-components=1 -xf node-v20.17.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz && rm node-v20.17.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz
 {{ end -}}
+cd ${HOME}
 
 
 # install kitty
