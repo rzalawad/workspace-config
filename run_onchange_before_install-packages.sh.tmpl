@@ -43,7 +43,7 @@ rm ./installer.sh
 
 {{ if eq .chezmoi.os "linux" -}}
 
-sudo apt install libmagic-dev -y && \
+sudo apt install libssl-dev libmagic-dev -y && \
     git clone https://github.com/NikitaIvanovV/ctpv && \
     cd ctpv && \
     make && \
