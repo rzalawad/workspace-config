@@ -37,3 +37,20 @@ mkdir -p ${HOME}/.local/node && cd ${HOME}/.local/node && wget https://nodejs.or
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh -o ./installer.sh && chmod +x ./installer.sh
 ./installer.sh dest=${HOME}/.local
 rm ./installer.sh
+
+
+# install ctpv
+
+{{ if eq .chezmoi.os "linux" -}}
+
+sudo apt install libmagic -y && \
+    git clone https://github.com/NikitaIvanovV/ctpv && \
+    cd ctpv && \
+    make && \
+    sudo make install && \
+    cd .. && \
+    rm -rf ctpv
+
+{{ else if eq .chezmoi.os "darwin" -}}
+brew install ctpv
+{{ end -}}
