@@ -2,8 +2,10 @@ set forcekitty
 set shell "/usr/bin/zsh"
 
 preview kitten_images .png .gif .jpeg .jpg {{
-    . ~/.zshrc
-    kitten icat --clear --transfer-mode=stream --stdin=no --place "${w}x${h}@${x}x${y}" $f < /dev/null > /dev/tty && exit 1
+    if [[ -n $SSH_CONNECTION ]]; then
+        sleep 0.2
+    fi
+    kitten icat --clear --transfer-mode=stream --stdin=no --place "${w}x${h}@${x}x${y}" $f < /dev/null > /dev/tty 2>/dev/tty && exit 1
 }}
 
 priority kitten_images
