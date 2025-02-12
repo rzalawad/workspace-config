@@ -9,11 +9,7 @@
 ".local":
   type: archive
   stripComponents: 1
-  {{ if eq .chezmoi.os "darwin" }}
-  url: "https://github.com/neovim/neovim/releases/download/stable/nvim-macos-arm64.tar.gz"
-  {{ else }}
-  url: "https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz"
-  {{ end }}
+  url: "https://github.com/neovim/neovim/releases/download/stable/nvim-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
 
 ".local/bin/kind":
   type: file
