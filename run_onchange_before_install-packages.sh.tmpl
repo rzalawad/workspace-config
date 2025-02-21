@@ -58,7 +58,7 @@ brew install ctpv
 
 # compile and install tmux
 {{ if eq .chezmoi.os "linux" -}}
-sudo apt install bison libncurses-dev
+sudo apt install bison libncurses-dev autotools-dev
 git clone https://github.com/tmux/tmux && cd tmux && ../autogen.sh && ./configure && make && sudo make install && cd .. && rm -rf tmux
 {{ else if eq .chezmoi.os "darwin" -}}
 brew install tmux
