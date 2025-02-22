@@ -31,6 +31,7 @@ mkdir -p ${HOME}/.local/node && cd ${HOME}/.local/node && wget https://nodejs.or
 {{ else }}
 mkdir -p ${HOME}/.local/node && cd ${HOME}/.local/node && wget https://nodejs.org/dist/v20.17.0/node-v20.17.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz && tar --strip-components=1 -xf node-v20.17.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz && rm node-v20.17.0-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz
 {{ end -}}
+
 cd ${HOME}
 
 
@@ -62,4 +63,12 @@ sudo apt install -y bison libncurses-dev autotools-dev automake pkg-config libev
 git clone https://github.com/tmux/tmux && cd tmux && ./autogen.sh && ./configure && make && sudo make install && cd .. && rm -rf tmux
 {{ else if eq .chezmoi.os "darwin" -}}
 brew install tmux
+{{ end -}}
+
+
+# install btop
+{{ if eq .chezmoi.arch "amd64" -}}
+sudo apt install -y btop
+{{ else }}
+brew install btop
 {{ end -}}
