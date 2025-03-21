@@ -244,6 +244,28 @@ plugins = {
             require('mtoc').setup({})
         end
     },
+    {
+        "olimorris/codecompanion.nvim",
+        opts = {
+            adapters = {
+                copilot = function()
+                    local username = vim.fn.system("git config --get github.user"):gsub("%s+", "")
+                    local default_model = username ~= "rzalawad" and "claude-3.7-sonnet" or "gpt-4o"
+
+                    return require("codecompanion.adapters").extend("copilot", {
+                        schema = {
+                            model = {
+                                default = default_model,
+                            },
+                            max_tokens = {
+                                default = 65536,
+                            },
+                        },
+                    })
+                end,
+            }
+        },
+    }
 }
 
 require("lazy").setup(plugins)
