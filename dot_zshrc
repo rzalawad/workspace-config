@@ -117,7 +117,11 @@ function pcsv {
 alias jl="jupyter lab"
 source <(fzf --zsh)
 
-git config --global --add oh-my-zsh.hide-dirty 1
+# Check if the config already exists
+if ! git config --global --get oh-my-zsh.hide-dirty &>/dev/null; then
+  # Only add if not already present
+  git config --global --add oh-my-zsh.hide-dirty 1
+fi
 CC=clang
 
 DOTNET_CLI_TELEMETRY_OPTOUT=1
