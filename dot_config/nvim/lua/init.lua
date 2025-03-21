@@ -75,16 +75,6 @@ iron.setup({
     },
 })
 
-require('chatgpt').setup({
-    openai_params = {
-        max_tokens = 800,
-        temperature = 0.7,
-        top_p = 0.95,
-    }
-})
-
-
-
 git_dir = require('lspconfig').util.find_git_ancestor(vim.fn.getcwd())
 if git_dir == nil then
     git_dir = vim.fn.getcwd()
