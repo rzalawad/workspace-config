@@ -221,3 +221,17 @@ fi
 alias gs="git status"
 alias wget="wget --content-disposition"
 alias icat="kitty +kitten icat"
+
+function rss() {
+    filename=$1
+    resize=$2
+    if [[ -z $filename ]]; then
+        echo "Usage: extract <filename> [resize]"
+        return 1
+    fi
+    if [[ -z $resize ]]; then
+        resize="300"
+    fi
+    convert -resize "${resize}%" "$filename" jpg:- | kitty +kitten icat
+
+}
