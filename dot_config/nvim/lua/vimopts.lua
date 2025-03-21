@@ -20,9 +20,7 @@ opt.colorcolumn = "100"
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldenable = false
-if vim.fn.has('termguicolors') then
-    opt.termguicolors = true
-end
+opt.termguicolors = true
 opt.completeopt = "menu,menuone"
 opt.ignorecase = true
 opt.smartcase = true
@@ -55,7 +53,10 @@ require("onedarkpro").setup({
     }
 })
 
-vim.cmd("colorscheme onedark_dark")
+-- vim.cmd("colorscheme onedark_dark")
+
+vim.g.ayucolor = "dark"
+vim.cmd("colorscheme ayu")
 
 -- highlight
 function highlight_create(name, val)

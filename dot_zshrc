@@ -123,7 +123,6 @@ CC=clang
 DOTNET_CLI_TELEMETRY_OPTOUT=1
 eval "$(starship init zsh)"
 
-export EDITOR='nvim'
 alias vim='nvim'
 
 function source_file_if_exists() {

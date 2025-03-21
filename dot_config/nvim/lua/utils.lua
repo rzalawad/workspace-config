@@ -25,7 +25,6 @@ end
 -- register all text objects with which-key
 ---@param opts table
 function M.ai_whichkey(opts)
-    print("executed")
     local objects = {
         { " ", desc = "whitespace" },
         { '"', desc = '" string' },
