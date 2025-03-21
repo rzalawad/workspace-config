@@ -25,6 +25,7 @@ plugins = {
     'sainnhe/edge',
     'morhetz/gruvbox',
     'sainnhe/sonokai',
+    'Luxed/ayu-vim',
     'tjdevries/colorbuddy.vim',
     'sainnhe/edge',
     'vigoux/oak',
@@ -237,7 +238,7 @@ plugins = {
     },
     {
         "hedyhli/markdown-toc.nvim",
-        ft = "markdown", -- Lazy load on markdown filetype
+        ft = "markdown",  -- Lazy load on markdown filetype
         cmd = { "Mtoc" }, -- Or, lazy load on "Mtoc" command
         config = function()
             require('mtoc').setup({})
