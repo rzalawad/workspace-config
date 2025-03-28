@@ -282,14 +282,6 @@ rt.setup({
 nvim_lsp.ruff.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    init_options = {
-        settings = {
-            lineLength = 100,
-            lint = {
-                select = { "E", "F", "I" }
-            }
-        }
-    }
 }
 
 nvim_lsp.pyright.setup {
@@ -405,4 +397,9 @@ nvim_lsp.terraformls.setup {
 nvim_lsp.marksman.setup {
     on_attach = on_attach,
     filetypes = { 'markdown' }
+}
+
+nvim_lsp.gopls.setup{
+    -- cmd = lspcontainers.command('gopls'),
+    on_attach = on_attach
 }
