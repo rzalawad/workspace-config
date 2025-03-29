@@ -72,3 +72,22 @@ sudo apt install -y btop
 {{ else }}
 brew install btop
 {{ end -}}
+
+# Install lua language server
+LUA_LS_VERSION=3.13.9
+LUA_LS_TAR_NAME=lua-ls.tar.gz
+{{ if eq .chezmoi.arch "amd64" -}}
+LUA_LS_URL=https://github.com/LuaLS/lua-language-server/releases/download/3.13.9/lua-language-server-${LUA_LS_VERSION}-linux-x64.tar.gz
+{{ else }}
+LUA_LS_URL=https://github.com/LuaLS/lua-language-server/releases/download/3.13.9/lua-language-server-${LUA_LS_VERSION}-darwin-arm64.tar.gz
+{{ end -}}
+LUA_LS_HOME_DIR=${HOME}/.local/lua-ls/
+
+mkdir -p ${LUA_LS_HOME_DIR} \
+    && cd ${LUA_LS_HOME_DIR} \
+    && wget $LUA_LS_URL -O ${LUA_LS_TAR_NAME} \
+    && tar -xf ${LUA_LS_TAR_NAME} \
+    && ln -s ${LUA_LS_HOME_DIR}/bin/lua-language-server ${HOME}/.local/bin/lua-language-server \
+    && rm ${LUA_LS_TAR_NAME}
+
+cd ${HOME}
