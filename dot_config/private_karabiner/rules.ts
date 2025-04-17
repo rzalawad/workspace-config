@@ -16,6 +16,7 @@ const bundle_identifiers = [
   "^com\\.citrix\\.XenAppViewer$",
   "^com\\.microsoft\\.rdc\\.macos$",
   "^net\\.kovidgoyal\\.kitty$",
+  "^com\\.todesktop\\.230313mzl4w4u92$",
 ];
 
 const rules: KarabinerRules[] = [
