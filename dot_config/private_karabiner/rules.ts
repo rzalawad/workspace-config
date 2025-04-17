@@ -94,7 +94,7 @@ const rules: KarabinerRules[] = [
       t: app("Kitty"),
       f: app("Firefox"),
       // c: shortcut("/Applications/ChatGPT"),
-      c: app('ChatGPT'),
+      c: app('Cursor'),
       // l: app("Obsidian"),
       y: app("YouTube"),
       s: app("Slack"),
