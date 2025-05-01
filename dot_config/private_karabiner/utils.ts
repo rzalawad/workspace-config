@@ -1,4 +1,4 @@
-import { To, KeyCode, Manipulator, KarabinerRules } from "./types";
+import { To, KeyCode, Manipulator, KarabinerRules, Any} from "./types";
 
 /**
  * Custom way to describe a command in a layer
@@ -21,7 +21,8 @@ type HyperKeySublayer = {
 export function createHyperSubLayer(
   sublayer_key: KeyCode,
   commands: HyperKeySublayer,
-  allSubLayerVariables: string[]
+  allSubLayerVariables: string[],
+  mandatory: KeyCode[] | [Any]
 ): Manipulator[] {
   const subLayerVariableName = generateSubLayerVariableName(sublayer_key);
 
@@ -33,12 +34,7 @@ export function createHyperSubLayer(
       from: {
         key_code: sublayer_key,
         modifiers: {
-          mandatory: [
-            "left_command",
-            "left_control",
-            "left_shift",
-            "left_option",
-          ],
+          mandatory: mandatory,
         },
       },
       to_after_key_up: [
@@ -102,7 +98,7 @@ export function createHyperSubLayer(
  */
 export function createHyperSubLayers(subLayers: {
   [key_code in KeyCode]?: HyperKeySublayer | LayerCommand;
-}): KarabinerRules[] {
+}, mandatory: KeyCode[] | [Any]): KarabinerRules[] {
   const allSubLayerVariables = (
     Object.keys(subLayers) as (keyof typeof subLayers)[]
   ).map((sublayer_key) => generateSubLayerVariableName(sublayer_key));
@@ -110,34 +106,30 @@ export function createHyperSubLayers(subLayers: {
   return Object.entries(subLayers).map(([key, value]) =>
     "to" in value
       ? {
-          description: `Hyper Key + ${key}`,
-          manipulators: [
-            {
-              ...value,
-              type: "basic" as const,
-              from: {
-                key_code: key as KeyCode,
-                modifiers: {
-                  // Mandatory modifiers are *not* added to the "to" event
-                  mandatory: [
-                    "left_command",
-                    "left_control",
-                    "left_shift",
-                    "left_option",
-                  ],
-                },
+        description: `Hyper Key + ${key}`,
+        manipulators: [
+          {
+            ...value,
+            type: "basic" as const,
+            from: {
+              key_code: key as KeyCode,
+              modifiers: {
+                // Mandatory modifiers are *not* added to the "to" event
+                mandatory: mandatory,
               },
             },
-          ],
-        }
+          },
+        ],
+      }
       : {
-          description: `Hyper Key sublayer "${key}"`,
-          manipulators: createHyperSubLayer(
-            key as KeyCode,
-            value,
-            allSubLayerVariables
-          ),
-        }
+        description: `Hyper Key sublayer "${key}"`,
+        manipulators: createHyperSubLayer(
+          key as KeyCode,
+          value,
+          allSubLayerVariables,
+          mandatory,
+        ),
+      }
   );
 }
 

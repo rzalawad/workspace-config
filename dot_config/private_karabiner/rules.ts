@@ -102,11 +102,58 @@ const rules: KarabinerRules[] = [
       e: app("Microsoft Excel"),
       m: app("Microsoft Outlook"),
     },
-
     // e = "etmux" - This is to SSH to devices
     // video that explains how this works below
     // https://youtu.be/MCbEPylDEWU
-  }),
+  }, [
+    "left_command",
+    "left_control",
+    "left_shift",
+    "left_option",
+  ]
+  ),
+  ...createHyperSubLayers({
+    // All the following combinations require the "hyper" key as well
+    left_option: {
+      j: {
+        to: [{ key_code: "9", modifiers: ["left_shift"], }],
+        description: "Option + J -> Open ( Parenthesis"
+      },
+      k: {
+        to: [{ key_code: "0", modifiers: ["left_shift"], }],
+        description: "Option + K -> Closing ) Parenthesis"
+      },
+      tab: {
+        to: [{ key_code: "tab", modifiers: ["left_command"], }],
+        description: "Option + Tab -> Command + Tab"
+      },
+      u: {
+        to: [{ key_code: "open_bracket", modifiers: [] }],
+        description: "Option + u -> Open [ bracket"
+      },
+      i: {
+        to: [{ key_code: "close_bracket", modifiers: [] }],
+        description: "Option + i -> Close ] bracket"
+      },
+      h: {
+        to: [{ key_code: "equal_sign", modifiers: [] }],
+        description: "Option + h -> ="
+      },
+      o: {
+        to: [{ key_code: "hyphen", modifiers: ["left_shift"] }],
+        description: "Option + o -> _"
+      },
+      l: {
+        to: [{ key_code: "period", modifiers: [] }],
+        description: "Option + l -> ."
+      },
+      n: {
+        to: [{ key_code: "quote", modifiers: ["left_shift"], }],
+        description: "Option + l -> ."
+      },
+    },
+  }, ["any"]
+  ),
   {
     description: "Caps Lock to Ctrl",
     manipulators: [

@@ -185,10 +185,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'ChatGPT.app'"
+                    "shell_command": "open -a 'Cursor.app'"
                   }
                 ],
-                "description": "Open -a 'ChatGPT.app'",
+                "description": "Open -a 'Cursor.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "c",
@@ -298,6 +298,275 @@
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Hyper Key sublayer \"left_option\"",
+            "manipulators": [
+              {
+                "description": "Toggle Hyper sublayer left_option",
+                "type": "basic",
+                "from": {
+                  "key_code": "left_option",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "to_after_key_up": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sublayer_left_option",
+                      "value": 0
+                    }
+                  }
+                ],
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sublayer_left_option",
+                      "value": 1
+                    }
+                  }
+                ],
+                "conditions": []
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "9",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "description": "Option + J -> Open ( Parenthesis",
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_left_option",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "0",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "description": "Option + K -> Closing ) Parenthesis",
+                "type": "basic",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_left_option",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "tab",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "description": "Option + Tab -> Command + Tab",
+                "type": "basic",
+                "from": {
+                  "key_code": "tab",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_left_option",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": []
+                  }
+                ],
+                "description": "Option + u -> Open [ bracket",
+                "type": "basic",
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_left_option",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": []
+                  }
+                ],
+                "description": "Option + i -> Close ] bracket",
+                "type": "basic",
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_left_option",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "equal_sign",
+                    "modifiers": []
+                  }
+                ],
+                "description": "Option + h -> =",
+                "type": "basic",
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_left_option",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "hyphen",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "description": "Option + o -> _",
+                "type": "basic",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_left_option",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "period",
+                    "modifiers": []
+                  }
+                ],
+                "description": "Option + l -> .",
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_left_option",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "quote",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "description": "Option + l -> .",
+                "type": "basic",
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_left_option",
                     "value": 1
                   }
                 ]
@@ -425,7 +694,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -472,7 +742,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -519,7 +790,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -566,7 +838,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -613,7 +886,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -657,7 +931,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -704,7 +979,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -752,7 +1028,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -801,7 +1078,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -845,7 +1123,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -892,7 +1171,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -940,7 +1220,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -989,7 +1270,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1036,7 +1318,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1083,7 +1366,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1132,7 +1416,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1179,7 +1464,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1226,7 +1512,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1273,7 +1560,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1320,7 +1608,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1391,7 +1680,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1466,7 +1756,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1513,7 +1804,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1560,7 +1852,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1607,7 +1900,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1651,7 +1945,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }
@@ -1698,7 +1993,8 @@
                       "^com\\.sublimetext\\.3$",
                       "^com\\.citrix\\.XenAppViewer$",
                       "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$"
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.todesktop\\.230313mzl4w4u92$"
                     ],
                     "type": "frontmost_application_unless"
                   }

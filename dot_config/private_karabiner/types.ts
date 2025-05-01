@@ -397,3 +397,5 @@ export type KeyCode =
   //   not_from: true
   | "volume_down"
   | "volume_up";
+
+export type Any = "any";
