@@ -699,12 +699,6 @@ const rules: KarabinerRules[] = [
     description: "V (Ctrl)",
     manipulators: [
       {
-        conditions: [
-          {
-            bundle_identifiers: bundle_identifiers,
-            type: "frontmost_application_unless",
-          },
-        ],
         from: {
           key_code: "v",
           modifiers: {
