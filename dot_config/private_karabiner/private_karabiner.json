@@ -1497,27 +1497,6 @@
             "description": "V (Ctrl)",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                      "^com\\.parallels\\.desktop\\.console$",
-                      "^org\\.vmware\\.fusion$",
-                      "^org\\.gnu\\.emacs$",
-                      "^com\\.jetbrains\\.intellij\\.ce$",
-                      "^com\\.jetbrains\\.PhpStorm$",
-                      "^com\\.jetbrains\\.pycharm$",
-                      "^com\\.jetbrains\\.rider$",
-                      "^com\\.microsoft\\.VSCode$",
-                      "^com\\.sublimetext\\.3$",
-                      "^com\\.citrix\\.XenAppViewer$",
-                      "^com\\.microsoft\\.rdc\\.macos$",
-                      "^net\\.kovidgoyal\\.kitty$",
-                      "^com\\.todesktop\\.230313mzl4w4u92$"
-                    ],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
                 "from": {
                   "key_code": "v",
                   "modifiers": {
