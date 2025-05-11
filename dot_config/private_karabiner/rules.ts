@@ -1,6 +1,100 @@
 import fs from "fs";
-import { KarabinerRules } from "./types";
+import { KarabinerRules, KeyCode, Manipulator } from "./types";
 import { createHyperSubLayers, app, open, shortcut } from "./utils";
+
+// Add this function to create the option key number layer
+function createOptionNumberLayer(): KarabinerRules {
+  // Define the mapping of keys to numbers
+  const numberMappings: { [key in KeyCode]?: KeyCode } = {
+    'n': '0',
+    'm': '1',
+    'comma': '2',  // , key
+    'period': '3', // . key
+    'j': '4',
+    'k': '5',
+    'l': '6',
+    'u': '7',
+    'i': '8',
+    'o': '9'
+  };
+  
+  // Create the manipulators array
+  const manipulators: Manipulator[] = [];
+  
+  // Generate manipulators for all the key mappings
+  Object.entries(numberMappings).forEach(([key, number]) => {
+    if (number) {
+      manipulators.push({
+        description: `left_option+${key} -> ${number}`,
+        type: "basic",
+        from: {
+          key_code: key as KeyCode,
+          modifiers: {
+            mandatory: ["left_option"],
+            optional: ["any"]
+          }
+        },
+        to: [
+          {
+            key_code: number
+          }
+        ]
+      });
+    }
+  });
+  
+  return {
+    description: "Option Key Number Layer (left_option + key for numbers)",
+    manipulators
+  };
+}
+
+// Add this function to create the right option key symbol layer
+function createRightOptionSymbolLayer(): KarabinerRules {
+  // Define symbol mappings based on the provided code
+  const symbolMappings: { [key in KeyCode]?: { key_code: KeyCode; modifiers?: string[] } } = {
+    'j': { key_code: '9', modifiers: ['left_shift'] },         // (
+    'k': { key_code: '0', modifiers: ['left_shift'] },         // )
+    'u': { key_code: 'open_bracket', modifiers: [] },          // [
+    'i': { key_code: 'close_bracket', modifiers: [] },         // ]
+    'h': { key_code: 'equal_sign', modifiers: [] },            // =
+    'o': { key_code: 'hyphen', modifiers: ['left_shift'] },    // _
+    'l': { key_code: 'period', modifiers: [] },                // .
+    'n': { key_code: 'quote', modifiers: ['left_shift'] },     // "
+    'tab': { key_code: 'tab', modifiers: ['left_command'] },   // cmd+tab
+  };
+  
+  // Create the manipulators array
+  const manipulators: Manipulator[] = [];
+  
+  // Generate manipulators for all the symbol mappings
+  Object.entries(symbolMappings).forEach(([key, mapping]) => {
+    if (mapping) {
+      manipulators.push({
+        description: `right_option+${key} -> ${mapping.key_code}${mapping.modifiers?.length ? ' with modifiers' : ''}`,
+        type: "basic",
+        from: {
+          key_code: key as KeyCode,
+          modifiers: {
+            mandatory: ["right_option"],
+            optional: ["any"]
+          }
+        },
+        to: [
+          {
+            key_code: mapping.key_code,
+            modifiers: mapping.modifiers
+          }
+        ]
+      });
+    }
+  });
+  
+  return {
+    description: "Right Option Key Symbol Layer (right_option + key for symbols)",
+    manipulators
+  };
+}
 
 const bundle_identifiers = [
   "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
@@ -20,6 +114,12 @@ const bundle_identifiers = [
 ];
 
 const rules: KarabinerRules[] = [
+  // Add the Option key number layer
+  createOptionNumberLayer(),
+  
+  // Add the Right Option key symbol layer
+  createRightOptionSymbolLayer(),
+  
   // I've been using my pinky way too often for all they keyboard
   // shortcuts and after months, my hand is starting to hurt, moving the
   // hyper key from caps_lock to my thumb
@@ -111,48 +211,6 @@ const rules: KarabinerRules[] = [
     "left_shift",
     "left_option",
   ]
-  ),
-  ...createHyperSubLayers({
-    // All the following combinations require the "hyper" key as well
-    left_option: {
-      j: {
-        to: [{ key_code: "9", modifiers: ["left_shift"], }],
-        description: "Option + J -> Open ( Parenthesis"
-      },
-      k: {
-        to: [{ key_code: "0", modifiers: ["left_shift"], }],
-        description: "Option + K -> Closing ) Parenthesis"
-      },
-      tab: {
-        to: [{ key_code: "tab", modifiers: ["left_command"], }],
-        description: "Option + Tab -> Command + Tab"
-      },
-      u: {
-        to: [{ key_code: "open_bracket", modifiers: [] }],
-        description: "Option + u -> Open [ bracket"
-      },
-      i: {
-        to: [{ key_code: "close_bracket", modifiers: [] }],
-        description: "Option + i -> Close ] bracket"
-      },
-      h: {
-        to: [{ key_code: "equal_sign", modifiers: [] }],
-        description: "Option + h -> ="
-      },
-      o: {
-        to: [{ key_code: "hyphen", modifiers: ["left_shift"] }],
-        description: "Option + o -> _"
-      },
-      l: {
-        to: [{ key_code: "period", modifiers: [] }],
-        description: "Option + l -> ."
-      },
-      n: {
-        to: [{ key_code: "quote", modifiers: ["left_shift"], }],
-        description: "Option + l -> ."
-      },
-    },
-  }, ["any"]
   ),
   {
     description: "Caps Lock to Ctrl",
@@ -1324,6 +1382,7 @@ fs.writeFileSync(
               country_code: 0,
               indicate_sticky_modifier_keys_state: true,
               mouse_key_xy_scale: 100,
+              keyboard_type: "ansi",
             },
           },
         },
