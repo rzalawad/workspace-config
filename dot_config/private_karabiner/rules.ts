@@ -775,6 +775,27 @@ const rules: KarabinerRules[] = [
     ],
   },
   {
+    description: "left-click (Ctrl)",
+    manipulators: [
+      {
+        from: {
+          pointing_button: "button1",
+          modifiers: {
+            mandatory: ["control"],
+            optional: ["any"],
+          },
+        },
+        to: [
+          {
+            pointing_button: "button1",
+            modifiers: ["command"],
+          },
+        ],
+        type: "basic",
+      },
+    ],
+  },
+  {
     description: "Z (Ctrl)",
     manipulators: [
       {
@@ -917,6 +938,33 @@ const rules: KarabinerRules[] = [
         to: [
           {
             key_code: "r",
+            modifiers: ["command"],
+          },
+        ],
+        type: "basic",
+      },
+    ],
+  },
+  {
+    description: "` (Ctrl)",
+    manipulators: [
+      {
+        conditions: [
+          {
+            bundle_identifiers: bundle_identifiers,
+            type: "frontmost_application_unless",
+          },
+        ],
+        from: {
+          key_code: "grave_accent_and_tilde",
+          modifiers: {
+            mandatory: ["control"],
+            optional: ["any"],
+          },
+        },
+        to: [
+          {
+            key_code: "grave_accent_and_tilde",
             modifiers: ["command"],
           },
         ],
