@@ -638,7 +638,20 @@ const rules: KarabinerRules[] = [
       {
         conditions: [
           {
-            bundle_identifiers: bundle_identifiers,
+            bundle_identifiers: [
+              "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+              "^com\\.parallels\\.desktop\\.console$",
+              "^org\\.vmware\\.fusion$",
+              "^org\\.gnu\\.emacs$",
+              "^com\\.jetbrains\\.intellij\\.ce$",
+              "^com\\.jetbrains\\.PhpStorm$",
+              "^com\\.jetbrains\\.pycharm$",
+              "^com\\.jetbrains\\.rider$",
+              "^com\\.microsoft\\.VSCode$",
+              "^com\\.sublimetext\\.3$",
+              "^com\\.citrix\\.XenAppViewer$",
+              "^com\\.microsoft\\.rdc\\.macos$",
+            ],
             type: "frontmost_application_unless",
           },
         ],
