@@ -115,10 +115,10 @@ const bundle_identifiers = [
 
 const rules: KarabinerRules[] = [
   // Add the Option key number layer
-  createOptionNumberLayer(),
+  // createOptionNumberLayer(),
   
   // Add the Right Option key symbol layer
-  createRightOptionSymbolLayer(),
+  // createRightOptionSymbolLayer(),
   
   // I've been using my pinky way too often for all they keyboard
   // shortcuts and after months, my hand is starting to hurt, moving the
@@ -126,12 +126,26 @@ const rules: KarabinerRules[] = [
   //
   // I tried using spacebar as the hyper key but cannot type well
   {
+    description: "Ctrl + ; -> ; (bypass Hyper)",
+    manipulators: [
+      {
+        from: {
+          key_code: "semicolon",
+          modifiers: { mandatory: ["control"], optional: ["any"] },
+        },
+        to: [{ key_code: "semicolon" }],
+        type: "basic",
+      },
+    ],
+  },
+  {
     description: "Hyper Key (⌃⌥⇧⌘)",
     manipulators: [
       {
         description: "; -> Hyper Key",
         from: {
           key_code: "semicolon",
+          modifiers: { optional: []}
         },
         to: [
           {
