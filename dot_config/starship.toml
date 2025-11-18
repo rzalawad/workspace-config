@@ -1,3 +1,25 @@
+# format = '''
+# [┌───────────────────>](bold green)
+# [│](bold green)$directory$rust$package
+# [└─>](bold green) '''
+# format = """
+# $directory\
+# $python\
+# $conda\
+# $virtualenv\
+# $c\
+# $cmd_duration\
+# $character
+# """
+
+format = "$conda$python $username@$hostname in $directory$character"
+add_newline = false
+
+[hostname]
+ssh_only = false
+format = '$hostname'
+disabled = false
+
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 
@@ -176,7 +198,11 @@ format = '\[[$symbol$workspace]($style)\]'
 format = '\[[$time]($style)\]'
 
 [username]
-format = '\[[$user]($style)\]'
+# format = '\[[$user]($style)\]'
+disabled = false
+show_always = true
+format = "$user"
+
 
 [vagrant]
 format = '\[[$symbol($version)]($style)\]'
