@@ -12,7 +12,8 @@
 # $character
 # """
 
-format = "$conda$python $username@$hostname in $directory$character"
+format = '''$conda$python $username@$hostname in $directory
+$character'''
 add_newline = false
 
 [hostname]
