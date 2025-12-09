@@ -21,6 +21,10 @@ ssh_only = false
 format = '$hostname'
 disabled = false
 
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 
