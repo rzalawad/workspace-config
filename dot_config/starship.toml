@@ -12,7 +12,7 @@
 # $character
 # """
 
-format = '''$conda$python $username@$hostname in $directory
+format = '''$conda$python$username@$hostname in $directory
 $character'''
 add_newline = false
 
@@ -44,7 +44,7 @@ format = '\[[⏱ $duration]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [conda]
-format = '\[[$symbol$environment]($style)\]'
+format = '\[[$symbol$environment]($style)\] '
 
 [crystal]
 format = '\[[$symbol($version)]($style)\]'
@@ -170,7 +170,7 @@ format = '\[[$symbol$stack]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [python]
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\] '
 
 [raku]
 format = '\[[$symbol($version-$vm_version)]($style)\]'
