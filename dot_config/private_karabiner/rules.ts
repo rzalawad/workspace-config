@@ -204,7 +204,7 @@ const rules: KarabinerRules[] = [
     a: {
       // j: app("Alacritty"),
       // j: app("WezTerm"),
-      o: app("Google Chrome"),
+      o: app("Obsidian"),
       b: app("Brave Browser"),
       t: app("Kitty"),
       f: app("Firefox"),
