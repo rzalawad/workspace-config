@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Copies VSCode user config from XDG (~/.config/code/User) to the macOS
+# Library location that VSCode actually reads from.
+# Re-runs automatically when keybindings.json changes.
+# keybindings hash: {{ include "dot_config/code/User/keybindings.json" | sha256sum }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+mkdir -p "$HOME/Library/Application Support/Code/User"
+cp "$HOME/.config/code/User/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+{{ end -}}
