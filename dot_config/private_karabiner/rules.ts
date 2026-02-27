@@ -106,6 +106,7 @@ const bundle_identifiers = [
   "^com\\.jetbrains\\.pycharm$",
   "^com\\.jetbrains\\.rider$",
   "^com\\.microsoft\\.VSCode$",
+  "^com.microsoft.VSCodeInsiders$",
   "^com\\.sublimetext\\.3$",
   "^com\\.citrix\\.XenAppViewer$",
   "^com\\.microsoft\\.rdc\\.macos$",
@@ -209,7 +210,7 @@ const rules: KarabinerRules[] = [
       t: app("Kitty"),
       f: app("Firefox"),
       // c: shortcut("/Applications/ChatGPT"),
-      c: app('Cursor'),
+      c: app('Visual Studio Code'),
       // l: app("Obsidian"),
       y: app("YouTube"),
       s: app("Slack"),
@@ -784,6 +785,12 @@ const rules: KarabinerRules[] = [
     description: "V (Ctrl)",
     manipulators: [
       {
+        conditions: [
+          {
+            bundle_identifiers: bundle_identifiers,
+            type: "frontmost_application_unless",
+          },
+        ],
         from: {
           key_code: "v",
           modifiers: {
