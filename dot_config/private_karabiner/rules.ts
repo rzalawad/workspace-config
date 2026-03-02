@@ -648,7 +648,6 @@ const rules: KarabinerRules[] = [
               "^com\\.jetbrains\\.PhpStorm$",
               "^com\\.jetbrains\\.pycharm$",
               "^com\\.jetbrains\\.rider$",
-              "^com\\.microsoft\\.VSCode$",
               "^com\\.sublimetext\\.3$",
               "^com\\.citrix\\.XenAppViewer$",
               "^com\\.microsoft\\.rdc\\.macos$",
