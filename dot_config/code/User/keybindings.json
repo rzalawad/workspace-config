@@ -54,5 +54,26 @@
         "key": "shift+alt+cmd+y",
         "command": "-workbench.debug.action.toggleRepl",
         "when": "workbench.panel.repl.view.active"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.toggleAuxiliaryBar",
+                "claude-vscode.focus"
+            ]
+        },
+        "when": "!auxiliaryBarVisible && !config.claudeCode.useTerminal"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "claude-vscode.focus",
+        "when": "auxiliaryBarVisible && editorTextFocus && !config.claudeCode.useTerminal"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "workbench.action.toggleAuxiliaryBar",
+        "when": "auxiliaryBarVisible && !editorTextFocus"
     }
 ]
