@@ -61,19 +61,19 @@
         "args": {
             "commands": [
                 "workbench.action.toggleAuxiliaryBar",
-                "claude-vscode.focus"
+                "claude-vscode.sidebar.open"
             ]
         },
         "when": "!auxiliaryBarVisible && !config.claudeCode.useTerminal"
     },
     {
         "key": "ctrl+shift+c",
-        "command": "claude-vscode.focus",
-        "when": "auxiliaryBarVisible && editorTextFocus && !config.claudeCode.useTerminal"
+        "command": "claude-vscode.sidebar.open",
+        "when": "auxiliaryBarVisible && !claude-vscode.sideBarActive && !config.claudeCode.useTerminal"
     },
     {
         "key": "ctrl+shift+c",
         "command": "workbench.action.toggleAuxiliaryBar",
-        "when": "auxiliaryBarVisible && !editorTextFocus"
+        "when": "auxiliaryBarVisible && claude-vscode.sideBarActive && !config.claudeCode.useTerminal"
     }
 ]
